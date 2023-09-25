@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    <!--Barra de de botones-->
+    <div slot="start" class="animation-container">
+      <ion-button color="red" class="title-animation" fill="clear" (click)="redi_inicio()">Inicio</ion-button>
+      <ion-button color="black" class="title-animation" fill="clear" (click)="redi_clase()">Mi Clase</ion-button>
+    </div>
+
+    <!--Imagen-->
+    <div slot="end">
+      <img width="150px" src="assets/icon/logo-duoc.png" alt="Logo DUOC" class="image-animation">
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content height= "100%" [fullscreen]="true" class="ion-padding-horizontal">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles de la Clase</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Sede: Alonso Ovalle  {{sede}}</p>
+      <p>Sigla: PGY4121 {{ bloqueInicio }}</p>
+      <p>Seccion: 001D {{seccion}}</p>
+      <p>Nombre asignatura: Aplicacion Moviles {{nombreAsignatura}}</p>
+      <p>Nombre profesor: Cristian Gomez Vega {{nombreProfesor}}</p>
+      <p>Día: 2022/08/09 {{dia}}</p>
+      <p>Bloque de inicio: 7 {{bloqueInicio}}</p>
+      <p>Bloque de termino: 9 {{bloqueTermino}}</p>
+      <p>Hora de inicio: 13:00 {{horaInicio}}</p>
+      <p>Hora de termino: 15:15 {{horaFin}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-style">
+    <div slot="start">
+      <div class="footer-animation">
+        Sistema de asistencia DuocUc
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    <!--Barra de de botones-->
+    <div slot="start" class="animation-container">
+      <ion-title class="title-animation">Pregunta</ion-title>
+    </div>
+
+    <!--Imagen-->
+    <div slot="end">
+      <img width="150px" src="assets/icon/logo-duoc.png" alt="Logo DUOC" class="image-animation">
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
+    <ion-card>
+      <ion-card-subtitle>Paso 2: Pregunta Secreta</ion-card-subtitle>
+
+      <ion-input type="text" [(ngModel)]="respuesta" placeholder="Respuesta"></ion-input>
+      <ion-label>
+        <ion-button class="Button" fill="clear" (click)="validarRespuestaSecreta()">Validar Respuesta</ion-button>
+      </ion-label>
+    </ion-card>
+
+    <ion-label>
+      <a href="">Iniciar sesión</a>
+    </ion-label>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar class="footer-style">
+      <div slot="start">
+        <div class="footer-animation">
+          Sistema de asistencia DuocUc
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+  

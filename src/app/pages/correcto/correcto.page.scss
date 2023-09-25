@@ -1,0 +1,58 @@
+.animation-container {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .title-animation {
+    animation: slideInLeft 1s ease-in-out;
+  }
+  
+  .image-animation {
+    animation: slideInRight 1s ease-in-out;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+/**Color del footer*/
+.footer-style{
+  color: #ffffff;
+  font-size: small;
+
+}
+
+/*Animacion del footer*/
+.footer-animation {
+  white-space: nowrap;
+  overflow: hidden; 
+  animation: footer-animation 10s linear infinite;
+  width: 100%;
+}
+
+@keyframes footer-animation {
+  0% {
+    transform: translateX(250%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

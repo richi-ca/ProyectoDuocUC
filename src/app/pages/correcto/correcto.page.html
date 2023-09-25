@@ -1,0 +1,48 @@
+<ion-header>
+  <div>
+    <ion-toolbar>
+      <div slot="start" class="animation-container">
+        <ion-title class="title-animation">Correcto</ion-title>
+      </div>
+      <!-- Agrega la imagen aquí -->
+      <div slot="end">
+        <img src="https://www.thegeniuschoice.com/wp-content/uploads/2017/10/Logo-DUOC-transparente-200x45.png" alt="Logo DUOC" class="image-animation">
+      </div>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
+
+  <ion-card class="ion-text-center">
+    <ion-title size="large">
+    <h2>Recuperar Contraseña</h2>
+    </ion-title>
+
+   
+      <img src="http://cpcd.upct.es/actividades_cursos/img/correcto.png" />
+    
+
+    <ion-label>
+      <h1>Correcto</h1>
+    </ion-label>
+    <ion-label>
+      <h2>Tu contraseña es: {{password}}</h2>
+    </ion-label>
+    
+
+  </ion-card>
+  <ion-label>
+    <a href="">Iniciar sesión</a>
+  </ion-label>
+</ion-content> 
+
+<ion-footer>
+  <ion-toolbar class="footer-style">
+    <div slot="start">
+      <div class="footer-animation">
+        Sistema de asistencia DuocUc
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,90 @@
+/*HEADER*/
+
+/*Animacion del menu*/
+.animation-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*Animacion del texto*/
+.title-animation {
+  color: white;
+  /* Heredar el color de texto */
+  background-color: transparent;
+  /* Fondo transparente */
+  animation: slideInLeft 1s ease-in-out;
+}
+
+
+/*Animacion de la imagen*/
+.image-animation {
+  animation: slideInRight 1s ease-in-out;
+}
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+}
+/*Animacion de la imagen*/
+
+/*HEADER*/
+
+ion-content {
+  height: 100%;
+  background-color: transparent; 
+}
+
+
+/*FOOTER*/
+
+/*Color del footer*/
+.footer-style{
+  color: #ffffff;
+  font-size: small;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+/*Color del footer*/
+
+
+/*Animacion del footer*/
+.footer-animation {
+  white-space: nowrap;
+  overflow: hidden; 
+  animation: footer-animation 10s linear infinite;
+  width: 100%;
+}
+
+@keyframes footer-animation {
+  0% {
+    transform: translateX(250%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/*Animacion del footer*/
