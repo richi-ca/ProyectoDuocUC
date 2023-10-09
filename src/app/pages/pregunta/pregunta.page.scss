@@ -8,7 +8,7 @@
 
 /*Animacion del texto*/
 .title-animation {
-  color: white;
+  color: black;
   /* Heredar el color de texto */
   background-color: transparent;
   /* Fondo transparente */
@@ -86,3 +86,6 @@ ion-content {
   }
 }
 /*Animacion del footer*/
+ion-content {
+  --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
+}

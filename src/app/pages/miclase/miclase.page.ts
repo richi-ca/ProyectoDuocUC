@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Usuario } from 'src/app/models/usuario';
+
+
+
 
 @Component({
   selector: 'app-miclase',
   templateUrl: './miclase.page.html',
   styleUrls: ['./miclase.page.scss'],
 })
+
+
 export class MiclasePage implements OnInit {
   public bloqueInicio!: number;
   public bloqueTermino!: number;
@@ -18,6 +24,10 @@ export class MiclasePage implements OnInit {
   public nombreProfesor!: string;
   public seccion!: string;
   public sede!: string;
+  
+  public usuario!:Usuario;
+  
+  
 
   constructor(
     private navCtrl: NavController,
@@ -36,8 +46,12 @@ export class MiclasePage implements OnInit {
       this.nombreProfesor = params['nombreProfesor'];
       this.seccion = params['seccion'];
       this.sede = params['sede'];
+      this.usuario.nombre= params ['nombre'];
+      
+      
     });
   }
+
   redi_inicio() {
     this.navCtrl.navigateForward('/inicio');
   }
@@ -45,4 +59,5 @@ export class MiclasePage implements OnInit {
   redi_clase() {
     this.navCtrl.navigateForward('/miclase');
   }
+  
 }
