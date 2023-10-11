@@ -1,0 +1,46 @@
+<ion-content class="background"></ion-content>
+<ion-header>
+
+  <ion-toolbar>
+
+    <div #titulo>Escaneando</div>
+    <!--Barra de de botones-->
+    <div slot="start" class="animation-container">
+      <ion-button color="black" class="title-animation" fill="clear" (click)="redi_inicio()">Inicio</ion-button>
+      <ion-button color="black" class="title-animation" fill="clear" (click)="redi_clase()">Mi Clase</ion-button>
+    </div>
+
+    <!--Imagen-->
+    <div slot="end">
+      <img width="150px" src="assets/icon/logo-duoc.png" alt="Logo DUOC" class="image-animation">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" >
+
+  <ion-button *ngIf= "!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" ></ion-icon>
+    Comenzar Escaneo de QR
+  </ion-button>
+
+  <ion-button *ngIf= "escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+    Detener escaneo de QR
+  </ion-button>
+
+  <video #video [hidden]="!escaneando" width="100%"></video>
+  <canvas #canvas hidden></canvas>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="footer-style">
+    <div slot="start">
+      <div class="footer-animation">
+        Sistema de asistencia DuocUc
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>
