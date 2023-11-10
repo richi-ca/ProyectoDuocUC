@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center background-img">
+
+  <img src="../../../assets/img/Logo_Clasico.png" alt="Logo Duoc" class="img-small">
+<div class="custom-card">
+  <h1>Sistema de Asistencia DuocUC</h1>
+</div>
+
+<br>
+<ion-card class="ion-text-center">
+  <br>
+  <ion-label><h1>¡Bienvenid@!</h1></ion-label>
+  <ion-card-content>
+    <form>
+      <ion-item>
+        <!--====hay que poner el ngModel y el name igual o por lo menos que no haya interferencia con otras variables
+          , osea en este caso los ngModel tiene usuario.email o podria ser email si esta sin clases y name puede ser email o incluso ema
+          pero deben coincidir sin problemas==-->
+        <ion-input [(ngModel)]="usuario.email" name="email" type="email" label="Correo" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="usuario.password" name="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+      </ion-item>
+      
+      <br>
+      <!-- (click)="evento()" evento del boton-->
+      <ion-button (click)="ingresar()">
+        Ingresar
+      </ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>
+
+<ion-label >
+  <ion-button (click)="goCorreo()">
+    Recuperar Contraseña
+  </ion-button>
+</ion-label>
+</ion-content>

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './ingresar-routing.module';
+import { LoginPageRoutingModule } from './login-routing.module';
 
-import { IngresarPage } from './ingresar.page';
+import { LoginPage } from './login.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { IngresarPage } from './ingresar.page';
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [IngresarPage]
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}

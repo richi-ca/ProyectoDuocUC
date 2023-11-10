@@ -1,13 +1,13 @@
 export class Usuario {
 
-    public email:String;
-    public password:String;
-    public nombre:String;
-    public preguntaSecreta:String;
-    public respuestaSecreta:String;
+    public email:string;
+    public password:string;
+    public nombre:string;
+    public preguntaSecreta:string;
+    public respuestaSecreta:string;
 
 
-    constructor(email:String,password:String,nombre: String,preguntaSecreta: String,respuestaSecreta: String){
+    constructor(email:string,password:string,nombre: string,preguntaSecreta: string,respuestaSecreta: string){
         this.email=email;
         this.password=password;
         this.nombre = nombre;
@@ -15,7 +15,7 @@ export class Usuario {
         this.respuestaSecreta = respuestaSecreta;
     }
 
-    public setUsuario(email:String,password:String):void{
+    public setUsuario(email:string,password:string):void{
         this.email=email;
         this.password=password;
     }
@@ -38,7 +38,7 @@ export class Usuario {
         return pivot;
     }
 
-    public buscarUsuarioPorCorreo(email: String): Usuario {
+    public buscarUsuarioPorCorreo(email: string): Usuario {
 
         return this.listaUsuariosValidos().find(
           usu => usu.email ===email);

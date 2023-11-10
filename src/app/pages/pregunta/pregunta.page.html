@@ -19,7 +19,7 @@
     <ion-card>
       <ion-card-subtitle>Paso 2: Pregunta Secreta </ion-card-subtitle>
         
-        <p> {{usuario.preguntaSecreta}}</p>
+        <p *ngIf="nombreUsuario"> {{ nombreUsuario }}</p>
 
       <ion-input type="text" [(ngModel)]="respuesta" placeholder="Respuesta"></ion-input>
       <ion-label>
@@ -28,7 +28,7 @@
     </ion-card>
 
     <ion-label>
-      <a href="">Iniciar sesión</a>
+      <ion-button href="">Iniciar sesión</ion-button>
     </ion-label>
   </ion-content>
 
@@ -36,7 +36,7 @@
     <ion-toolbar class="footer-style">
       <div slot="start">
         <div class="footer-animation">
-          Sistema de asistencia DuocUc
+          Sistema de asistencia DuocUC
         </div>
       </div>
     </ion-toolbar>

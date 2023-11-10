@@ -1,68 +1,71 @@
-<ion-content class="background"></ion-content>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    
-    <!--Barra de de botones-->
-    <br>
-    <div slot="start" class="animation-container">
-      <ion-button color="red" class="title-animation" fill="clear" (click)="redi_inicio()">Inicio</ion-button>
+<ion-content>
+<div>
+  <img src="../../../assets/img/Logo_Clasico.png" alt="Logo DuocUC" class="logo">
+</div>
+<ion-button class="title-animation" fill="solid" (click)="redi_inicio()">
+  <ion-icon name="home" slot="start"></ion-icon> Inicio
+</ion-button>
 
-      <ion-button color="black" class="title-animation" fill="clear" (click)="redi_clase()">Mi Clase</ion-button>
-    </div>
-
-    <!--Imagen-->
-    <div slot="end">
-      <img width="150px" src="assets/icon/logo-duoc.png" alt="Logo DUOC" class="image-animation">
-    </div>
-
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content height= "100%" [fullscreen]="true" class="ion-padding-horizontal">
-  <div slot="start" class="animation-container">
-    <ion-button color="red" class="title-animation" fill="clear" (click)="redi_inicio()">Inicio</ion-button>
-
-    <ion-button color="black" class="title-animation" fill="clear" (click)="redi_clase()">Mi Clase</ion-button>
-  </div>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenid@!  </ion-card-title>
-     
-    </ion-card-header>
-    <ion-card-content>
-      
-      
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
+  <ion-card class="custom-card-1">
     <ion-card-header>      
-
       <ion-card-title>Detalles de la Clase</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-      <p>Sede: Alonso Ovalle  {{sede}}</p>
-      <p>Sigla: PGY4121 {{ bloqueInicio }}</p>
-      <p>Seccion: 001D {{seccion}}</p>
-      <p>Nombre asignatura: Aplicacion Moviles {{nombreAsignatura}}</p>
-      <p>Nombre profesor: Cristian Gomez Vega {{nombreProfesor}}</p>
-      <p>Día: 2022/08/09 {{dia}}</p>
-      <p>Bloque de inicio: 7 {{bloqueInicio}}</p>
-      <p>Bloque de termino: 9 {{bloqueTermino}}</p>
-      <p>Hora de inicio: 13:00 {{horaInicio}}</p>
-      <p>Hora de termino: 15:15 {{horaFin}}</p>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">Sede</ion-col>
+        <ion-col size="6">{{sede}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Sigla</ion-col>
+        <ion-col size="6">{{idAsignatura}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Seccion</ion-col>
+        <ion-col size="6">{{seccion}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Nombre asignatura</ion-col>
+        <ion-col size="6">{{nombreAsignatura}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Nombre profesor</ion-col>
+        <ion-col size="6">{{nombreProfesor}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Día</ion-col>
+        <ion-col size="6">{{dia}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Bloque de inicio</ion-col>
+        <ion-col size="6">{{bloqueInicio}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Bloque de termino</ion-col>
+        <ion-col size="6">{{bloqueTermino}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Hora de inicio</ion-col>
+        <ion-col size="6">{{horaInicio}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Hora de termino</ion-col>
+        <ion-col size="6">{{horaFin}}</ion-col>
+      </ion-row>
+    </ion-grid>
     </ion-card-content>
   </ion-card>
+  <br>
+  <ion-button expand="full" shape="round" (click)="cerrarSesion()">
+    <ion-icon slot="start" name="log-out"></ion-icon>
+    Cerrar Sesión
+  </ion-button>
 </ion-content>
 
-
-
-<ion-footer>
-  <ion-toolbar class="footer-style">
-    <div slot="start">
-      <div class="footer-animation">
-        Sistema de asistencia DuocUc
-      </div>
-    </div>
-  </ion-toolbar>
+<ion-footer class="ion-text-center custom-footer">
+  <div class="custom-card">
+    <h1>Sistema de Asistencia DuocUC</h1>
+  </div>
+  <ion-icon name="cog" class="rotate"></ion-icon>
 </ion-footer>

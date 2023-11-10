@@ -1,4 +1,4 @@
-<ion-content class="background"></ion-content>
+<ion-content class="background">
 <ion-header>
   <div>
     <ion-toolbar>
@@ -14,7 +14,6 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
 
   <ion-card class="ion-text-center">
     
@@ -23,19 +22,20 @@
         <h2>Recuperar Contraseña</h2>
       </ion-title>
 
-        <img src="assets/img/incorrecto.png" />
+        <img src="../../../assets/img/error.png" />
 
       <ion-label>
         <h1>Incorrecto</h1>
-        <h2>Contraseña incorrecta!</h2>
-        <h3>Vuelta a intertarlo </h3>
+        <h2>¡Lo sentimos pero los datos ingresados son incorrectos!</h2>
+        <br>
+        <h3>Vuelta a intertarlo</h3>
       </ion-label>
       
       
     </ion-card-content>
 
   </ion-card>
-  <ion-label>
+  <ion-label class="button">
     <a href="">Iniciar sesión</a>
   </ion-label>
 </ion-content>
@@ -44,7 +44,7 @@
   <ion-toolbar class="footer-style">
     <div slot="start">
       <div class="footer-animation">
-        Sistema de asistencia DuocUc
+        Sistema de asistencia DuocUC
       </div>
     </div>
   </ion-toolbar>

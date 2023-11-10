@@ -1,27 +1,3 @@
-/*HEADER*/
-
-/*Animacion del menu*/
-.animation-container {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/*Animacion del texto*/
-.title-animation {
-  color: white;
-  /* Heredar el color de texto */
-  background-color: transparent;
-  /* Fondo transparente */
-  animation: slideInLeft 1s ease-in-out;
-}
-
-
-/*Animacion de la imagen*/
-.image-animation {
-  animation: slideInRight 1s ease-in-out;
-}
-
-
 @keyframes slideInLeft {
   from {
     transform: translateX(-100%);
@@ -46,38 +22,6 @@
   }
 
 }
-/*Animacion de la imagen*/
-
-/*HEADER*/
-
-ion-content {
-  height: 100%;
-  background-color: transparent; 
-}
-
-
-/*FOOTER*/
-
-/*Color del footer*/
-.footer-style{
-  color: #ffffff;
-  font-size: small;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-
-}
-/*Color del footer*/
-
-
-/*Animacion del footer*/
-.footer-animation {
-  white-space: nowrap;
-  overflow: hidden; 
-  animation: footer-animation 10s linear infinite;
-  width: 100%;
-}
 
 @keyframes footer-animation {
   0% {
@@ -87,7 +31,65 @@ ion-content {
     transform: translateX(-100%);
   }
 }
-/*Animacion del footer*/
+
+.logo{
+  max-width: 350px; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+  }
+
+.title-animation {
+  border: 2px solid var(--ion-color-primary);
+  border-radius: 10px;
+  color: var(); 
+  background-color: var(--ion-color-primary); 
+  transition: all 0.3s ease; 
+  
+&:hover {
+    background-color: var(); 
+    color: #fff; 
+  }
+
+ion-icon {
+    color: #fff; 
+    font-size: 20px; 
+    
+  }
+}
+
+.custom-card-1 {
+  background-color: lightgray;
+}
+
+ion-col {
+  border-collapse: collapse;
+  border: 2px solid gray;
+}
+
+.custom-footer {
+  background-color: beige; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+
+
+@keyframes rotation {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+  }
+}
+
 ion-content {
   --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
 }

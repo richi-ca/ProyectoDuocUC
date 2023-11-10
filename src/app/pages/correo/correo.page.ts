@@ -1,4 +1,3 @@
-
 import { Router, NavigationExtras } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
@@ -21,6 +20,7 @@ export class CorreoPage implements OnInit {
     const usuario = new Usuario("", "","","","");
     const usuarioEncontrado = usuario.buscarUsuarioPorCorreo(this.correo);
     if (!usuarioEncontrado) {
+      this.router.navigate(['/incorrecto'])
       alert('EL CORREO NO EXISTE DENTRO DE LAS CUENTAS VALIDAS DEL SISTEMA');
     }
     else {

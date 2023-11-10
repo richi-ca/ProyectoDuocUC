@@ -35,7 +35,7 @@
 
 /**Color del footer*/
 .footer-style{
-  color: #ffffff;
+  color: black;
   font-size: small;
 
 }
@@ -58,4 +58,9 @@
 }
 ion-content {
   --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
+}
+
+.button{
+  display: flex;
+  justify-content: center; 
 }

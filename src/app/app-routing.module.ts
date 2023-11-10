@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./pages/ingresar/ingresar.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login-routing.module').then( m => m.LoginPageRoutingModule)
   },
   {
     path: '',
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () =>  import('./pages/inicio/inicio-routing.module').then( m => m.InicioPageRoutingModule)
   },
   {
     path: 'correo',
@@ -31,10 +31,21 @@ const routes: Routes = [
     path: 'incorrecto',
     loadChildren: () => import('./pages/incorrecto/incorrecto.module').then( m => m.IncorrectoPageModule)
   },
- {
+  {
     path: 'miclase',
     loadChildren: () => import('./pages/miclase/miclase.module').then( m => m.MiclasePageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  
+
+
 
   
   

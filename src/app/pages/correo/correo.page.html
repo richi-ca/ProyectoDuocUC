@@ -6,7 +6,7 @@
     <!--Barra de de botones-->
     <div slot="start" class="animation-container">
 
-        <ion-title class=#title-animation>correo</ion-title>
+        <ion-title class=#title-animation>Correo</ion-title>
     </div>
 
     <!--Imagen-->
@@ -19,16 +19,16 @@
 
 <ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
   <ion-card>
-    <ion-card-subtitle>Paso 1:Ingresa tu correo</ion-card-subtitle>
+    <ion-card-subtitle>Paso 1: Ingresa tu correo</ion-card-subtitle>
     
     <ion-input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo"></ion-input>
     <ion-label>
-      <ion-button class="Button" (click)="ingresarPaginaValidarRespuestaSecreta()">Ingresar</ion-button>
+      <ion-button class="Button" fill="clear" (click)="ingresarPaginaValidarRespuestaSecreta()">Recuperar Contraseña</ion-button>
     </ion-label>
   </ion-card>
 
   <ion-label>
-    <a href="">Iniciar sesión</a>
+    <ion-button href="">Iniciar sesión</ion-button>
   </ion-label>
 
 </ion-content>
@@ -37,7 +37,7 @@
   <ion-toolbar class="footer-style">
     <div slot="start">
       <div class="footer-animation">
-        Sistema de asistencia DuocUc
+        Sistema de asistencia DuocUC
       </div>
     </div>
   </ion-toolbar>

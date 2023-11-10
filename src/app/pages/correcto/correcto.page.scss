@@ -35,7 +35,7 @@
 
 /**Color del footer*/
 .footer-style{
-  color: #ffffff;
+  color: black;
   font-size: small;
 
 }
@@ -67,4 +67,9 @@ ion-content {
        border-collapse: collapse;
        width: 880px;
        align-items: center;
+}
+
+.button{
+  display: flex;
+  justify-content: center; 
 }
