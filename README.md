@@ -1,5 +1,5 @@
 # ProyectoIonic
-Gustavo Paredes
-Jeremy Contreras
-Manuel Morales
+Ricardo Esteban Castillo Avalos
+Sebastian Catalan Carvajal 
+Andres Antonio Osorio Salazar
  Proyecto Ionic DuocUc
