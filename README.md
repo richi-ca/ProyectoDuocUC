@@ -3,6 +3,4 @@ Ricardo Esteban Castillo Avalos
 Sebastian Enrique Catalan Carvajal 
 Andres Antonio Osorio Salazar
  Proyecto Ionic DuocUc
-* prueba
-* prueba 2
-* prueba 3
+* Confirmacion de estar en el main
