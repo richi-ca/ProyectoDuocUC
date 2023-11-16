@@ -75,8 +75,6 @@ bootstrapApplication(AppComponent, {
     }
     // CGV-FIN-3
     ,
-    provideAnimations(),
-    provideAnimations(),
     provideAnimations()
 ],
 });
