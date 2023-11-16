@@ -16,7 +16,11 @@
       "es2018", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "paths": {
+      "localforage": ["./node_modules/localforage/dist/localforage.js"],
+      "jsqr": ["./node_modules/jsqr/dist/jsqr.esm.js"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
