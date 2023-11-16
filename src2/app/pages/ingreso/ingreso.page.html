@@ -1,0 +1,29 @@
+<ion-content class="background">
+  
+<ion-header [translucent]="true">
+  
+  <ion-toolbar>
+    <ion-title>Sistema de Asistencia DUOC </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="centrado-vertical">
+    <div class="marco">
+      <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <div class="alinear-centro">
+        <ion-button (click)="ingresar()">
+          Ingresar
+        </ion-button>
+      </div></ion-card>
+    </div>
+  </div>
+
+</ion-content>
