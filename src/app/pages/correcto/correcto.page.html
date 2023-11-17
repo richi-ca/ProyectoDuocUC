@@ -1,0 +1,46 @@
+<ion-content class="background">
+
+<ion-header>
+    <div>
+        <ion-toolbar>
+        <div slot="start" class="animation-container">
+            <ion-title class="title-animation">Correcto</ion-title>
+        </div>
+        <div slot="end">
+            <img src="../../../assets/icon/logoduoc.png" alt="Logo" class="image-animation">
+        </div>
+        </ion-toolbar>
+    </div>
+</ion-header>
+
+    <ion-card name="correctocarta" class="ion-text-center">
+        <ion-title size="large">
+        <h2>Recuperar Contraseña</h2>
+        </ion-title>
+    
+
+        <img src="../../../assets/img/correcto.jpeg" class="correcto"/>
+
+        <ion-label>
+            <h1>Correcto</h1>
+        </ion-label>
+        <ion-label>
+            <h2>Tu contraseña es: {{password}}</h2>
+        </ion-label>
+    </ion-card>
+    <ion-card>
+        <ion-footer class="ion-text-center">
+            <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
+        </ion-footer>
+    </ion-card>
+</ion-content> 
+
+<ion-footer>
+    <ion-toolbar class="footer-style">
+        <div slot="start">
+            <div class="footer-animation">
+                Sistema de asistencia DuocUC
+            </div>
+        </div>
+    </ion-toolbar>
+</ion-footer>

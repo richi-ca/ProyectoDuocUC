@@ -1,0 +1,21 @@
+.image-animation {
+    width: auto;
+    height: 40px;
+}
+
+ion-content {
+    --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
+}
+
+
+h1 {
+    font-size: 18px; /* Tamaño del título */
+}
+
+.custom-footer {
+    background-color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

@@ -1,13 +1,45 @@
+<ion-content class="background"></ion-content>
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>pregunta</ion-title>
+    
+    <!--Barra de de botones-->
+    <div slot="start" class="animation-container">
+      <ion-title class=#title-animation>Pregunta</ion-title>
+    </div>
+
+    <!--Imagen-->
+    <div slot="end">
+      <img src="../../../assets/icon/logoduoc.png" alt="Logo DUOC" class="image-animation">
+    </div>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pregunta</ion-title>
+  <ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
+    <ion-card>
+      <ion-card-subtitle>Paso 2: Pregunta Secreta </ion-card-subtitle>
+        
+        <p *ngIf="nombreUsuario"> {{ nombreUsuario }}</p>
+
+      <ion-input type="text" [(ngModel)]="respuesta" placeholder="Respuesta"></ion-input>
+      <ion-label>
+        <ion-button class="Button" fill="clear" (click)="validarRespuestaSecreta()">Validar Respuesta</ion-button>
+      </ion-label>
+    </ion-card>
+    <ion-card>
+      <ion-footer class="ion-text-center">
+          <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
+      </ion-footer>
+    </ion-card>
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar class="footer-style">
+        <div slot="start">
+            <div class="footer-animation">
+                Sistema de asistencia DuocUC
+            </div>
+        </div>
     </ion-toolbar>
-  </ion-header>
-</ion-content>
+</ion-footer>
