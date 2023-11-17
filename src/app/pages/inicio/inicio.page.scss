@@ -2,7 +2,7 @@ ion-content.background {
   --background: #000000 url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
   background-size: cover;
   min-height: 100vh;
-  overflow: hidden !important; /* Desactiva el desplazamiento vertical */
+  overflow: hidden; /* Desactiva el desplazamiento vertical */
 }
 
 .footer {
