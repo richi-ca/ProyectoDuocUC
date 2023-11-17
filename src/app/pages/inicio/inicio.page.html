@@ -1,50 +1,41 @@
 <ion-content class="background">
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Sistema de Asistencia DuocUC
-    <div>
-      <ion-img  src="assets/icon/logoduoc.png" width="100px"  alt="Logo DUOC" ></ion-img>
-    </div>
-    </ion-title>
+  <ion-header [translucent]="false">
+    <ion-toolbar class="ion-text-center header-toolbar">
+      <ion-title>
+        <ion-img src="assets/icon/logoduoc.png" class="logo" alt="Logo DUOC"></ion-img>
+        <div class="header-text">
+          Sistema de Asistencia DuocUC
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-toolbar class="ion-text-center">
+    <ion-segment [(ngModel)]="componente_actual" (ngModelChange)="cambiarComponente($event)" class="segment-container">
+      <ion-segment-button value="qr" class="segment-button">
+        <ion-label>QR</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="miclase" class="segment-button">
+        <ion-label>Mi clase</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="foro" class="segment-button">
+        <ion-label>Foro</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="misdatos" class="segment-button">
+        <ion-label>Mis Datos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
-</ion-header>
- <ion-toolbar>
-  <ion-segment [(ngModel)]="componente_actual" (ngModelChange)="cambiarComponente($event)">
-    <ion-segment-button value="qr">
-      <ion-label>QR</ion-label>
-    </ion-segment-button>
 
-    <ion-segment-button value="miclase">
-      <ion-label>Mi clase</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="foro">
-      <ion-label>Foro</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="misdatos">
-      <ion-label>Mis Datos</ion-label>
-    </ion-segment-button>
-  </ion-segment>
- </ion-toolbar>
-
-<ion-content>
-  
-  <app-qr [hidden]="componente_actual !== 'qr'" (qrCapturado)="cambiarComponente('miclase')"></app-qr>
-
-  <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase>
-
-  <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
-
-  <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>
+    <app-qr *ngIf="componente_actual === 'qr'" (qrCapturado)="cambiarComponente('miclase')"></app-qr>
+    <app-miclase *ngIf="componente_actual === 'miclase'"></app-miclase>
+    <app-foro *ngIf="componente_actual === 'foro'"></app-foro>
+    <app-misdatos *ngIf="componente_actual === 'misdatos'"></app-misdatos>
 
 
-
+  <ion-footer class="ion-text-center footer">
+    <ion-toolbar class="footer-toolbar">
+      <ion-button (click)="cerrarSesion()" expand="full" fill="clear" shape="round">Cerrar Sesión</ion-button>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
-
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">Cerrar Sesión</ion-button>
-  </ion-toolbar>
-</ion-footer>
