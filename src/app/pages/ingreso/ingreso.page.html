@@ -18,12 +18,19 @@
       <ion-item>
         <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
       </ion-item>
-      <div class="alinear-centro">
-        <ion-button (click)="ingresar()">
-          Ingresar
-        </ion-button>
-      </div></ion-card>
+        <div class="alinear-centro">
+          <ion-button (click)="ingresar()">
+            Ingresar
+          </ion-button>
+        </div>
+        <ion-label>
+          <ion-button class="custom-button" (click)="goCorreo()">
+            Recuperar Contraseña
+          </ion-button>
+        </ion-label>
+      </ion-card>
     </div>
   </div>
+
 
 </ion-content>
