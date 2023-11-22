@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { Usuario } from 'src/app/model/usuario';
@@ -20,8 +20,18 @@ export class PreguntaPage implements OnInit {
   public respuesta: string = '';
   public nombreUsuario: string = '';
 
-  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router) { 
+  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { 
     
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.usuario = this.router.getCurrentNavigation().extras.state.usuario;
+        if (this.usuario && this.usuario.nombre) {
+          this.nombreUsuario = this.usuario.nombre;
+        }
+      } else {
+        this.router.navigate(['/ingreso']);
+      }
+    });
     
   }
 
@@ -29,22 +39,17 @@ export class PreguntaPage implements OnInit {
   }
 
   public validarRespuestaSecreta(): void {
-    this.bd.leerUsuario(this.respuesta)
-      .then((usuario: Usuario) => {
-        if (!usuario) {
-          this.router.navigate(['/correcto']);
-        } else {
-          const navigationExtras: NavigationExtras = {
-            state: {
-              usuario: usuario
-            }
-          };
-          this.router.navigate(['/incorrecto'], navigationExtras);
+    if (this.usuario.respuestaSecreta === this.respuesta) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          password: this.usuario.password
         }
-      })
-      .catch(error => {
-        console.error('Error al leer usuario:', error);
-      });
+      };
+      this.router.navigate(['/correcto'],navigationExtras);
+    }
+    else {
+      this.router.navigate(['/incorrecto']);
+    }
   }
 
   ingresar() {
