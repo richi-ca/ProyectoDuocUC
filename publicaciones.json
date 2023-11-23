@@ -71,6 +71,14 @@
       "apellido": "Fuentes",
       "titulo": "Eventos Culturales en el Instituto Duoc",
       "contenido": "Descubre la diversidad cultural en el Instituto Duoc. Participa en nuestros eventos culturales que celebran la creatividad y el arte."
+    },
+    {
+      "id": 10,
+      "correo": "atorres@duocuc.cl",
+      "nombre": "Ana",
+      "apellido": "Torres",
+      "titulo": "publicacion de prueba",
+      "contenido": "publicacion de prueba editada"
     }
   ]
 }
