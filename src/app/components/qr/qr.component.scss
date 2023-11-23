@@ -10,3 +10,21 @@
 .centrar-boton {
   text-align: center;
 }
+
+@keyframes desplazamiento {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%{
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.desplazar-texto {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: desplazamiento 10s linear backwards;
+}
