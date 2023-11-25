@@ -11,20 +11,30 @@
   text-align: center;
 }
 
+// @keyframes desplazamiento {
+//   0% {
+//     transform: translateX(-100%);
+//   }
+//   50%{
+//     transform: translateX(0%);
+//   }
+//   100% {
+//     transform: translateX(100%);
+//   }
+// }
+
 @keyframes desplazamiento {
   0% {
     transform: translateX(-100%);
   }
-  50%{
-    transform: translateX(0%);
-  }
   100% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 }
 
 .desplazar-texto {
   white-space: nowrap;
   overflow: hidden;
-  animation: desplazamiento 10s linear backwards;
+  // animation: desplazamiento 10s linear backwards;
+  animation: desplazamiento 5s linear backwards;
 }

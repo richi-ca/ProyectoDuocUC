@@ -1,45 +1,49 @@
-<ion-content class="background"></ion-content>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    
-    <!--Barra de de botones-->
-    <div slot="start" class="animation-container">
-      <ion-title class=#title-animation>Pregunta</ion-title>
-    </div>
-
-    <!--Imagen-->
-    <div slot="end">
-      <img src="../../../assets/icon/logoduoc.png" alt="Logo DUOC" class="image-animation">
-    </div>
-
+<ion-content class="background">
+  <ion-toolbar class="toolbar">
+    <ion-title>
+      <div>
+        <ion-img
+          src="assets/icon/logoduoc.png"
+          width="100px"
+          alt="Logo DUOC"
+        ></ion-img>
+      </div>
+      <div style="text-align: center" class="titulo">
+        Sistema de asistencia DuocUC
+      </div>
+    </ion-title>
   </ion-toolbar>
-</ion-header>
 
-  <ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
-    <ion-card>
-      <ion-card-subtitle>Paso 2: Pregunta Secreta </ion-card-subtitle>
-        
-        <p *ngIf="nombreUsuario"> {{ nombreUsuario }}</p>
+  <div class="centrado-vertical">
+    <div class="marco ion-text-center">
+      <ion-card>
+        <ion-card-subtitle>Paso 2: Pregunta Secreta </ion-card-subtitle>
 
-      <ion-input type="text" [(ngModel)]="respuesta" placeholder="Respuesta"></ion-input>
-      <ion-label>
-        <ion-button class="Button" fill="clear" (click)="validarRespuestaSecreta()">Validar Respuesta</ion-button>
-      </ion-label>
-    </ion-card>
-    <ion-card>
-      <ion-footer class="ion-text-center">
-          <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
-      </ion-footer>
-    </ion-card>
+        <p *ngIf="nombreUsuario">
+          Usuario: {{ nombreUsuario }} {{ usuario.apellido }}
+        </p>
 
-  </ion-content>
-
-  <ion-footer>
-    <ion-toolbar class="footer-style">
-        <div slot="start">
-            <div class="footer-animation">
-                Sistema de asistencia DuocUC
-            </div>
-        </div>
-    </ion-toolbar>
-</ion-footer>
+        <ion-input
+          type="text"
+          [(ngModel)]="respuesta"
+          placeholder="Respuesta"
+        ></ion-input>
+        <ion-label>
+          <ion-button
+            class="Button"
+            fill="clear"
+            (click)="validarRespuestaSecreta()"
+            >Validar Respuesta</ion-button
+          >
+        </ion-label>
+      </ion-card>
+      <ion-card>
+        <ion-footer class="ion-text-center">
+          <ion-button (click)="ingresar()" fill="clear"
+            >Volver al Login</ion-button
+          >
+        </ion-footer>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

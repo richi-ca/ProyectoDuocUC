@@ -1,34 +1,33 @@
 <ion-content class="background">
-
-    <ion-header [translucent]="true">
-        <ion-toolbar>
-            <div slot="start" class="animation-container">
-                <ion-title class=#title-animation>Correo</ion-title>
-            </div>
-            <div slot="end">
-                <img src="../../../assets/icon/logoduoc.png" alt="Logo" class="image-animation">
-            </div>
-        </ion-toolbar>
-    </ion-header>
-
-    <ion-card class="ion-text-center">
-        <ion-card-subtitle>Paso 1: Ingresa tu correo</ion-card-subtitle>
-        <ion-input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo"></ion-input>
-    <ion-label class="ion-padding">
-        <ion-button class="Button" fill="clear" (click)="ingresarPaginaValidarRespuestaSecreta()">Recuperar Contraseña</ion-button>
-    </ion-label>
-    </ion-card>
-    <ion-card>
-    <ion-footer class="ion-text-center">
-        <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
-    </ion-footer>
-    </ion-card>
-</ion-content>
-
-
-
-<ion-footer class="ion-text-center custom-footer">
-    <div class="custom-card">
-        <h1>Sistema de Asistencia DuocUC</h1>
+    <ion-toolbar class="toolbar">
+      <ion-title>
+        <div>
+          <ion-img
+            src="assets/icon/logoduoc.png"
+            width="100px"
+            alt="Logo DUOC"
+          ></ion-img>
+        </div>
+        <div style="text-align: center" class="titulo">
+          Sistema de asistencia DuocUC
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  
+    <div class="centrado-vertical">
+      <div class="marco ion-text-center">
+        <ion-card class="ion-text-center">
+            <ion-card-subtitle>Paso 1: Ingresa tu correo</ion-card-subtitle>
+            <ion-input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo"></ion-input>
+        <ion-label class="ion-padding">
+            <ion-button class="Button" fill="clear" (click)="ingresarPaginaValidarRespuestaSecreta()">Recuperar Contraseña</ion-button>
+        </ion-label>
+        </ion-card>
+        <ion-card>
+        <ion-footer class="ion-text-center">
+            <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
+        </ion-footer>
+        </ion-card>
+      </div>
     </div>
-</ion-footer>
+  </ion-content>

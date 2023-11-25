@@ -69,6 +69,11 @@ export class QrComponent  implements OnInit {
     this.video.nativeElement.play();
     this.escaneando = true;
     requestAnimationFrame(this.verificarVideo.bind(this));
+    // temporizador para el qr 10.000mls = 10seg
+    setTimeout(() => {
+      this.escaneando = false;
+      this.video.nativeElement.srcObject.getTracks().forEach(track => track.stop());
+    }, 10000);
   }
 
   async verificarVideo() {
@@ -92,10 +97,10 @@ export class QrComponent  implements OnInit {
     if (qrCode) {
       const data = qrCode.data;
       if (data !== '') {
-        this.escaneando = false;
+        // this.escaneando = false;
         // this.video.nativeElement.pause();
-        // this.video.nativeElement.currentTime = 0;
-        //(document.getElementById('video1') as HTMLVideoElement).pause();
+        // this.video.nativeElement.currentTime = 5;
+        (document.getElementById('video1') as HTMLVideoElement).pause();
         if (this.asistencia.verificarAsistenciaDesdeQR(qrCode.data)) {
           this.bd.datosQR.next(qrCode.data);
           this.qrCapturado.emit(qrCode.data);
@@ -109,7 +114,10 @@ export class QrComponent  implements OnInit {
   }
 
   public detenerEscaneoQR(): void {
+    // detiene escaneo
     this.escaneando = false;
+    // apaga la camara
+    this.video.nativeElement.srcObject.getTracks().forEach(track => track.stop());
   }
 
   /**
