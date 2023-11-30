@@ -1,100 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <head>
+    <title>Example Web Download</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<header class="main-header">
-  <div class="container">
-    <div class="logo">
-      <h1>Aplicacion asistencia duoc</h1>
-    </div>
-    <nav class="menu">
+  </head>
+  <body>
+    <header class="main-header text-center">
+      <div class="container">
+        <div
+          class="logo"
+          style="
+            background-color: #041c2c;
+            color: white;
+            padding: 5px; /* Ajusta según sea necesario para el espaciado interior */
+            border-radius: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;"
+        >
+          <h1>Aplicacion asistencia duoc</h1>
+        </div>
+        <!-- <nav class="menu">
       <ul>
         <button type="button" class="btn btn-primary">Aplicacion</button>
             <button type="button" class="btn btn-primary">Nosotros</button>
       </ul>
-    </nav>
-  </div>
-</header>
+    </nav> -->
+      </div>
+    </header>
 
-
-<body>
-
-    <div class="container">  
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 70%;">
+    <body class="text-center">
+      <div class="container text-center">
+        <div
+          id="myCarousel"
+          class="carousel slide"
+          data-ride="carousel"
+          style="width: 70%; margin: auto"
+        >
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <!-- Ajusta según la cantidad de pares de imágenes que tengas -->
           </ol>
-      
+
           <div class="carousel-inner">
             <div class="item active">
-              <img src="fotos/duoc1.jpg" alt="" style="width:50%;">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="fotos/duoc1.jpg" alt="" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                  <img src="fotos/duoc2.jpg" alt="" class="img-fluid" />
+                </div>
+              </div>
             </div>
-      
+
             <div class="item">
-              <img src="fotos/duoc2.jpg" alt="" style="width:50%;">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="fotos/duoc2.jpg" alt="" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                  <img src="fotos/duoc3.jpg" alt="" class="img-fluid" />
+                </div>
+              </div>
             </div>
-          
+
             <div class="item">
-              <img src="fotos/duoc3.jpg" alt="" style="width:50%;">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="fotos/duoc3.jpg" alt="" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                  <img src="fotos/duoc1.jpg" alt="" class="img-fluid" />
+                </div>
+              </div>
             </div>
+            <!-- Añade más ítems según sea necesario -->
           </div>
-      
+
           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <a
+            class="right carousel-control"
+            href="#myCarousel"
+            data-slide="next"
+          >
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
-    </div>
-
-
-    <div class="container">
-      <script src="script.js"></script> 
-
-
-        
-      <div class="main-title">
-      <h2>Aplicacion para revisar la asistencia</h2>
-      <p>Optimiza tu seguimiento académico con nuestra aplicación de revisión de asistencias universitarias.</p>
-      <p>Accede fácilmente a tus registros de asistencia, recibe notificaciones y mantén un control preciso de tu rendimiento en el aula, todo desde la palma de tu mano.</p>
-      <p>¡Potencia tu éxito académico con nuestra app intuitiva y eficiente!</p>
       </div>
 
-      
-        <div class="fotos-item">
-            <img src="fotos/duoc4.jpg"  class="d-block w-100" alt="..." width="760px" height="250px">
-            <h3>Como descargar</h3>
-        </div>
-        <div class="fotos-item">
-            <img src="fotos/qrcode-generado.png" alt="Como descargar">
-        </div>
-      </div>
+      <div class="container">
+        <script src="script.js"></script>
 
-      <footer class="main-footer">
-        <div class="footer-content">
-          <div class="footer-info">
-            <h3>¿Quiénes somos?</h3>
-            <div class="footer-buttons">
-              <button type="button" class="btn btn-primary">Aplicacion</button>
-              <button type="button" class="btn btn-primary">Nosotros</button>
+        <div class="main-title">
+          <h2>Aplicacion para revisar la asistencia</h2>
+          <p>
+            Optimiza tu seguimiento académico con nuestra aplicación de revisión
+            de asistencias universitarias.
+          </p>
+          <p>
+            Accede fácilmente a tus registros de asistencia, recibe
+            notificaciones y mantén un control preciso de tu rendimiento en el
+            aula, todo desde la palma de tu mano.
+          </p>
+          <p>
+            ¡Potencia tu éxito académico con nuestra app intuitiva y eficiente!
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="fotos-item">
+              <img
+                src="fotos/duoc4.jpg"
+                class="d-block w-100"
+                alt="..."
+                width="760px"
+                height="250px"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="fotos-item">
+              <h3>Como descargar</h3>
+              <img
+                src="fotos/qrcode-generado.png"
+                alt="Como descargar"
+                class="img-fluid"
+              />
             </div>
           </div>
         </div>
-      </footer>
-    </div>
 
-    
-</body>
+        <footer class="main-footer text-center">
+          <div class="footer-content">
+            <div class="footer-info" style="margin-bottom: 50px">
+              <h3>¿Quiénes somos?</h3>
+              <div class="footer-buttons">
+                <button type="button" class="btn btn-primary">
+                  Aplicacion
+                </button>
+                <button type="button" class="btn btn-primary">Nosotros</button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </body>
+  </body>
+</html>
