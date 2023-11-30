@@ -1,0 +1,51 @@
+ion-title {
+  white-space: nowrap;
+
+}
+
+.centered-title {
+  text-align: center; /* Centra horizontalmente el texto del título */
+  margin-right: 100px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+@keyframes animacionTexto {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(100%); 
+  }
+}
+
+
+/* Estilos generales para el título */
+.desplazar {
+  white-space: nowrap;
+  animation: animacionTexto 5s linear infinite;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .desplazar {
+    font-size: 14px; /* Tamaño de fuente ajustable para dispositivos móviles */
+    animation: animacionTexto 5s linear infinite;
+  }
+}
+
+/* Estilos para el contenedor del logo y el título */
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Estilos para el logo */
+.logo {
+  max-width: 100px;
+}
