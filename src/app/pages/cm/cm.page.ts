@@ -8,6 +8,7 @@ import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
 import { MisdatosComponent } from 'src/app/components/misdatos/misdatos.component';
 import { QrComponent } from 'src/app/components/qr/qr.component';
 import { Usuario } from 'src/app/model/usuario';
+import { ApiClientService } from 'src/app/services/api-client.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 
@@ -44,3 +45,34 @@ export class CmPage implements OnInit{
     
   }
 }
+
+export class InicioPage implements OnInit {
+
+  componente_actual = 'qr';
+
+  constructor(
+    private authService: AuthService,
+    private bd: DataBaseService,
+    private api: ApiClientService
+  ) { }
+
+  ngOnInit() {
+    this.authService.primerInicioSesion.subscribe(esPrimerInicio => {
+      this.componente_actual = 'qr';
+      this.bd.datosQR.next('');
+  });
+}
+
+cambiarComponente(nombreComponente: string) {
+  this.componente_actual = nombreComponente;
+  if(this.componente_actual === 'foro') this.api.cargarPublicaciones();
+  if(this.componente_actual === 'misdatos') this.authService.leerUsuarioAutenticado();
+
+}
+
+cerrarSesion(){
+  this.authService.logout();
+}
+
+}
+
