@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>
+<body>
+    <script>
+        function isMobileDevice(){
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        document.location = isMobileDevice()? '/movil' : '/pc';
+    </script>
+</body>
+</html>
