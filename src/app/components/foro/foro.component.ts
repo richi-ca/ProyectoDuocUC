@@ -102,7 +102,7 @@ export class ForoComponent  implements OnInit {
   }
 
   eliminarPublicacion(pub: any) {
-    if(pub.correo !== this.usuario.correo) {
+    if(pub.correo !== this.usuario.correo && this.usuario.correo !== 'admin@duocuc.cl') {
       showAlertDUOC('Solo puedes eliminar una publicaicon propia');
       return;
     }

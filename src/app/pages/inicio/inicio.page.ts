@@ -41,8 +41,10 @@ cambiarComponente(nombreComponente: string) {
 
 }
 
+
 cerrarSesion(){
   this.authService.logout();
 }
 
 }
+

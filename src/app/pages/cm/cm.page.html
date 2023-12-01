@@ -30,9 +30,9 @@
       <ion-segment-button value="foro" class="comp">
         <ion-label>Foro</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="misdatos" class="comp">
+      <!-- <ion-segment-button value="misdatos" class="comp">
         <ion-label>Mis Datos</ion-label>
-      </ion-segment-button>
+      </ion-segment-button> -->
     </ion-segment>
   </ion-toolbar>
 
@@ -41,9 +41,9 @@
     (qrCapturado)="cambiarComponente('miclase')"
   ></app-qr>
   <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase> -->
-  <app-adm [hidden]="pages_actual !== 'adm'"></app-adm>
+  <app-adm [hidden]="componente_actual !== 'adm'"></app-adm>
   <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
-  <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>
+  <!-- <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos> -->
   <ion-footer class="footer">
     <ion-toolbar>
       <ion-button

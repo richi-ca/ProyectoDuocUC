@@ -4,23 +4,20 @@ import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { showAlertDUOC } from 'src/app/tools/message-routines';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { ForoComponent } from 'src/app/components/foro/foro.component';
-import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
-import { MisdatosComponent } from 'src/app/components/misdatos/misdatos.component';
-import { QrComponent } from 'src/app/components/qr/qr.component';
 
 
 @Component({
   selector: 'app-adm',
-  templateUrl: './adm.page.html',
-  styleUrls: ['./adm.page.scss'],
+  templateUrl: './adm.component.html',
+  styleUrls: ['./adm.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, QrComponent, MiclaseComponent, ForoComponent, MisdatosComponent]
+  imports: [IonicModule, CommonModule, FormsModule,],
 })
-export class AdmPage implements OnInit {
+
+export class AdmComponent implements OnInit {
   public usuario:any = new Usuario();
   listaUsuarios: Usuario[] = [];
   constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) { }
@@ -34,10 +31,10 @@ export class AdmPage implements OnInit {
 
       console.log("usuario ", this.usuario);
     })
-    
   }
+
   eliminarUsuario(user:any){
-    if(user=="admin@duocuc.cl"){
+    if(user.correo === "admin@duocuc.cl"){
       showAlertDUOC("No se puede eliminar al administrador");
       return;
     } else{
