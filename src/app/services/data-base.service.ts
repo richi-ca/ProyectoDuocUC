@@ -63,6 +63,7 @@ export class DataBaseService {
   async leerUsuarios() {
     const usuarios: Usuario[] = (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
     this.listaUsuarios.next(usuarios);
+    return usuarios;
   }
 
   async leerUsuario(correo: string): Promise<Usuario | undefined> {

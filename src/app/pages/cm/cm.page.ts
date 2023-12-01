@@ -35,6 +35,11 @@ export class CmPage implements OnInit {
   esAdmin: boolean = false;
   componente_actual = 'qr';
 
+  menu = [
+    {name: 'Admin', value: 'adm'},
+    {name: 'Foro', value: 'foro'},
+  ]
+
   constructor(
     private authService: AuthService,
     private bd: DataBaseService,
@@ -61,7 +66,7 @@ export class CmPage implements OnInit {
     });
 
     this.authService.primerInicioSesion.subscribe((esPrimerInicio) => {
-      this.componente_actual = 'qr';
+      this.componente_actual = 'adm';
       this.bd.datosQR.next('');
     });
   }

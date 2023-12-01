@@ -19,13 +19,15 @@ import { FormsModule } from '@angular/forms';
 
 export class AdmComponent implements OnInit {
   public usuario:any = new Usuario();
-  listaUsuarios: Usuario[] = [];
+  listaUsuarios!: any;
+
   constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) { }
 
   async ngOnInit() {
-    this.bd.listaUsuarios.subscribe(usuarios => {
-      this.listaUsuarios = usuarios;
-    });
+    this.bd.leerUsuarios().then((res) => {
+      this.listaUsuarios = res;
+      console.log(res);
+    })
     this.authService.leerUsuarioAutenticado().then((usuario) => {
       this.usuario = usuario;
 
@@ -42,6 +44,5 @@ export class AdmComponent implements OnInit {
       showAlertDUOC("El usuario ha sido eliminado");
       this.router.navigate(['/cm/adm']);
     }
-    
   }
 }
