@@ -16,6 +16,7 @@
       "es2018", 
       "dom"
     ],
+    "types": ["cypress"],
     "useDefineForClassFields": false,
     "paths": {
       "localforage": ["./node_modules/localforage/dist/localforage.js"],
