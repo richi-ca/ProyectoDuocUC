@@ -80,4 +80,7 @@
     "typescript": "^5.0.4"
   },
   "description": "An Ionic project"
+  "jshintConfig": {
+    "esversion": 6
+  }
 }
