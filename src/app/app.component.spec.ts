@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
 
-
+// faltarian unas cuantas pruebas mas
 
 describe('Probar el comienzo de la aplicación', () => {
 
