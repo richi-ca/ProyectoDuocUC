@@ -47,7 +47,6 @@ describe('Probar clase de usuario', () => {
     const usuario = new Usuario();
 
     describe ('Probar que la contraseña sea correcta', () => {
-        const usuario = new Usuario();
 
         it ('Probar que la contraseña no sea vacía', () => {
                 usuario.password = '';
