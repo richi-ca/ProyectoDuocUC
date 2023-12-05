@@ -9,6 +9,6 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 })
 export class AppComponent {
 
-  title = 'Sistema de asistencias Duoc UC';
+  title = 'Sistema de Asistencia DuocUC';
   constructor() {}
 }
