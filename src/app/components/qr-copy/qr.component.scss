@@ -1,0 +1,33 @@
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-card {
+  width: 80%; /* establece el ancho deseado */
+  margin: 0 auto; /* centra horizontalmente el card */
+  background-color: #003c71; /* color de fondo de duoc */
+  color: #ffffff; /* color del texto blanco en este caso*/
+  border-radius: 10px; /* redondeado de bordes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*sombreado suave */
+}
+
+.custom-card ion-card-header {
+  background-color: #ffcd00; /*color de fondo de encabezado*/
+  color: #003c71; /*color de texto para encabezado*/
+  font-weight: bold; /*texto en negrita para el encabezado*/
+  border-bottom: 1px solid #003c71; /*linea infererior del encabezado*/
+}
+
+.custom-card ion-card-content p {
+  margin: 10px 0; 
+}
+
+ion-card-content p {
+  border-bottom: 1px solid #ccc; /* Puedes ajustar el color y el grosor de la línea según tus preferencias */
+  padding-bottom: 5px; /* Espaciado opcional debajo de la línea */
+  margin-bottom: 10px; /* Espaciado opcional entre los elementos <p> */
+}
+

@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true" class="ion-text-center" >
+  <h1><strong>Bienvenido</strong></h1>
+  <h2 *ngIf="stateLoad"> Bienvenido(a) {{ usuario?.nombre }} {{ usuario?.apellido }}</h2>
+  <p>
+
+    <span class="parpadeo">Escanea el código QR para registrar tu asistencia a clases</span>
+  </p>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ingreso</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="camera-container" >
+    <video #video autoplay></video>
+    <canvas #canvas style="display: none;"></canvas>
+  </div>
+
+  <ion-button (click)="iniciarEscaneoQR()" [disabled]="escaneando">
+    Iniciar Escaneo QR
+  </ion-button>
+
+  <ion-button (click)="detenerEscaneoQR()" [disabled]="!escaneando">
+    Detener Escaneo QR
+  </ion-button>
+
+
+  <ion-card *ngIf="datosQR" class="custom-card">
+      <ion-card-header>
+        Información de la Asignatura
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Sede:</strong> {{ datosQRs.sede }}</p>
+        <p><strong>ID Asignatura:</strong> {{ datosQRs.idAsignatura }}</p>
+        <p><strong>Sección:</strong> {{ datosQRs.seccion }}</p>
+        <p><strong>Nombre Asignatura:</strong> {{ datosQRs.nombreAsignatura }}</p>
+        <p><strong>Nombre Profesor:</strong> {{ datosQRs.nombreProfesor }}</p>
+        <p><strong>Día:</strong> {{ datosQRs.dia }}</p>
+        <p><strong>Bloque Inicio:</strong> {{ datosQRs.bloqueInicio }}</p>
+        <p><strong>Bloque Término:</strong> {{ datosQRs.bloqueTermino }}</p>
+        <p><strong>Hora Inicio:</strong> {{ datosQRs.horaInicio }}</p>
+        <p><strong>Hora Fin:</strong> {{ datosQRs.horaFin }}</p>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -79,6 +79,22 @@
       "apellido": "Torres",
       "titulo": "publicacion de prueba",
       "contenido": "publicacion de prueba editada"
+    },
+    {
+      "id": 11,
+      "correo": "admin@duocuc.cl",
+      "nombre": "Administrador",
+      "apellido": "App",
+      "titulo": "aaaa",
+      "contenido": "aaaa"
+    },
+    {
+      "id": 12,
+      "correo": "atorres@duocuc.cl",
+      "nombre": "Ana",
+      "apellido": "Torres",
+      "titulo": "bbbb",
+      "contenido": "bbbbbb"
     }
   ]
 }

@@ -18,8 +18,14 @@
       [(ngModel)]="componente_actual"
       (ngModelChange)="cambiarComponente($event)"
     >
-      <ion-segment-button value="qr" class="comp">
+      <!-- <ion-segment-button value="qr" class="comp">
         <ion-label class="comp">QR</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="qr-copy" class="comp">
+        <ion-label class="comp">QRC</ion-label>
+      </ion-segment-button> -->
+      <ion-segment-button value="qr-nativo" class="comp">
+        <ion-label class="comp">QRN</ion-label>
       </ion-segment-button>
       <ion-segment-button value="miclase" class="comp">
         <ion-label>Mi clase</ion-label>
@@ -33,10 +39,18 @@
     </ion-segment>
   </ion-toolbar>
 
-  <app-qr
+  <!-- <app-qr
     [hidden]="componente_actual !== 'qr'"
-    (qrCapturado)="cambiarComponente('miclase')"
-  ></app-qr>
+    (qrCapturado)="cambiarComponente('miclase')">
+  </app-qr>
+  <app-qr
+    [hidden]="componente_actual !== 'qr-copy'"
+    (qrCapturado)="cambiarComponente('miclase')">
+  </app-qr> -->
+  <app-qr-nativo
+    [hidden]="componente_actual !== 'qr-nativo'"
+    (qrCapturado)="cambiarComponente('miclase')">
+  </app-qr-nativo>
   <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase>
   <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
   <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>

@@ -48,29 +48,29 @@ describe('Probar clase de usuario', () => {
 
     describe ('Probar que la contraseña sea correcta', () => {
 
-        it ('Probar que la contraseña no sea vacía', () => {
-                usuario.password = '';
-                expect(usuario.validarPassword(usuario.password)).toContain('El campo "Password" es requerido.');
-        });
+      it ('Probar que la contraseña no sea vacía', () => {
+        usuario.password = '';
+        expect(usuario.validarPassword(usuario.password)).toContain('El campo "Password" es requerido.');
+      });
 
-        it('Probar que la contraseña sea numérica o String', () => {
-            usuario.password = '';
-            const resultado = usuario.validarPassword(usuario.password);
-            expect(resultado).toContain('El campo "Password" es requerido.'); // Cambiado para reflejar el mensaje correcto
-          });
-          
+      it('Probar que la contraseña sea numérica o String', () => {
+        usuario.password = '';
+        const resultado = usuario.validarPassword(usuario.password);
+        expect(resultado).toContain('El campo "Password" es requerido.'); // Cambiado para reflejar el mensaje correcto
+      });
+        
 
-          it('Probar que la contraseña no supere los 4 dígitos como por ejemplo "1234567890"', () => {
-            usuario.password = '';
-            const resultado = usuario.validarPassword(usuario.password);
-            expect(resultado).toContain('El campo "Password" es requerido.');
-          });
+      it('Probar que la contraseña no supere los 4 dígitos como por ejemplo "1234567890"', () => {
+        usuario.password = '';
+        const resultado = usuario.validarPassword(usuario.password);
+        expect(resultado).toContain('El campo "Password" es requerido.');
+      });
 
-        it ('Probar que la contraseña sea de 4 dígitos como por ejemplo "1234"', () => {
-            usuario.password = '';
-            const resultado = usuario.validarPassword(usuario.password);
-            expect(resultado).toContain('El campo "Password" es requerido.')
-        });
+      it ('Probar que la contraseña sea de 4 dígitos como por ejemplo "1234"', () => {
+        usuario.password = '';
+        const resultado = usuario.validarPassword(usuario.password);
+        expect(resultado).toContain('El campo "Password" es requerido.')
+      });
 
     });
 
