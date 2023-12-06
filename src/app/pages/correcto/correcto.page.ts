@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { DataBaseService } from 'src/app/services/data-base.service';
-
+import { Usuario } from 'src/app/model/usuario';
 @Component({
   selector: 'app-correcto',
   templateUrl: './correcto.page.html',
@@ -15,25 +14,20 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 })
 export class CorrectoPage implements OnInit {
 
-  public password: string;
+  public password:String = "";
 
-  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { 
+  constructor(private activatedRoute: ActivatedRoute,private router: Router) {
 
     this.activatedRoute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.password = this.router.getCurrentNavigation().extras.state.password;
+      if (this.router.getCurrentNavigation()?.extras?.state) {
+        this.password = this.router.getCurrentNavigation()?.extras?.state?.['password'];
+      } else {
+        this.router.navigate(['/login']);
       }
     });
-  }
+   }
 
-
-  
   ngOnInit() {
-  }
-
-
-  ingresar() {
-    this.router.navigate(['/ingreso']);
   }
 
 }

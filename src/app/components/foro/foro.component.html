@@ -1,6 +1,4 @@
-<div class="background">
-
-
+<ion-content [fullscreen]="true">
     <a #topOfPage href="#topOfPage"></a>
     <ion-card>
 
@@ -39,15 +37,17 @@
             {{ pub.contenido }}
         </ion-card-content>
 
-        <div class="alinear-centro">
+        <div class="alinear-derecha">
 
-            <ion-button (click)="editarPublicacion(pub)" class="alinear-centro">
+            <ion-button (click)="editarPublicacion(pub)">
                 Editar
+                <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
             </ion-button>
 
-            <ion-button (click)="eliminarPublicacion(pub)" class="alinear-centro">
+            <ion-button (click)="eliminarPublicacion(pub)">
                 Eliminar
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
             </ion-button>
         </div>
     </ion-card>
-</div>
+</ion-content>

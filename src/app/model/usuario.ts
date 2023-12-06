@@ -1,5 +1,3 @@
-import { constant } from "cypress/types/lodash";
-
 export class Usuario {
 
     correo = '';
@@ -36,56 +34,32 @@ export class Usuario {
 
     // Valida que el correo sea valido
     validarCorreo(correo: string): string {
-        if (correo.trim() === ''){
-            return 'Para ingresar al sistema debe ingresar el correo del usuario.';
-        }
         return this.validarCampoRequerido('Correo', correo);
     }
 
-    // Valida que el password sea válido
+    // Valida que el password sea valido
     validarPassword(password: string): string {
-        if (password.trim() === '') {
-            return 'Para entrar al sistema debe ingresar la contraseña.';
-        } else if (!/^[0-9a-zA-Z]{4,5}$/.test(password)) {
-            return 'La contraseña debe ser numérica o alfanumérica de 4 a 5 caracteres.';
-        }else if (password.length > 5) {
-            return 'La contraseña no puede tener más de 5 dígitos.';
-          }
-  
-    return '';
-  }
-  
+        return this.validarCampoRequerido('Password', password);
+    }
 
     // Valida que el nombre sea valido
     validarNombre(nombre: string): string {
-        if (nombre.trim() === '') {
-            return 'Debe ingresar su nombre.';
-        }
-        return '';
+        return this.validarCampoRequerido('Nombre', nombre);
     }
 
     // Valida que el apellido sea valido
     validarApellido(apellido: string): string {
-        if (apellido.trim() === '') {
-            return 'Debe ingresar su apellido.';
-        }
-        return '';
+        return this.validarCampoRequerido('Apellido', apellido);
     }
 
     // Valida que la pregunta secreta sea valida
-    validarPreguntaSecreta(question: string): string {
-        if (question.trim() === '') {
-            return 'Debe ingresar su pregunta secreta.';
-        }
-        return '';
+    validarPreguntaSecreta(preguntaSecreta: string): string {
+        return this.validarCampoRequerido('Pregunta secreta', preguntaSecreta);
     }
 
     // Valida que la respuesta secreta sea valida
-    validarRespuestaSecreta(answer: string): string {
-        if (answer.trim() === '') {
-            return 'Debe ingresar su respuesta secreta.';
-        }
-        return '';
+    validarRespuestaSecreta(respuestaSecreta: string): string {
+        return this.validarCampoRequerido('Respuesta secreta', respuestaSecreta);
     }
 
     // Valida todas las validaciones a la vez

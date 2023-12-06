@@ -1,38 +1,94 @@
-ion-content .background{
-  --background: #ffffff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
-  background-size: cover;
-  min-height: 100vh;
-  overflow: hidden; /* Desactiva el desplazamiento vertical */
+ion-content {
+    --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
+  }
+/*HEADER*/
+
+/*Animacion del menu*/
+.animation-container {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.centrado-vertical {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 65%;
-  }
-  
-  .marco {
-    border: 3px solid gray;
-    padding: 10px;
-    border-radius: 20px;
+/*Animacion del texto*/
+.title-animation {
+  color: black;
+  /* Heredar el color de texto */
+  background-color: transparent;
+  /* Fondo transparente */
+  animation: slideInLeft 1s ease-in-out;
+}
+
+
+/*Animacion de la imagen*/
+.image-animation {
+  animation: slideInRight 1s ease-in-out;
+}
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
   }
 
-.toolbar{
-    --background: rgba(255, 255, 255, 0);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  ion-title .titulo {
-    background-color: #041C2C;
-    color: white;
-    padding: 10px; /* Ajusta según sea necesario para el espaciado interior */
-    border-radius: 20px; /* Ajusta según sea necesario para los bordes redondeados */
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
 
-  ion-card{
-    border-radius: 10px;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
+
+}
+/*Animacion de la imagen*/
+
+/*HEADER*/
+ion-content {
+  height: 100%;
+}
+
+
+/*FOOTER*/
+
+/*Color del footer*/
+.footer-style{
+  color: #ffffff;
+  font-size: small;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+/*Color del footer*/
+
+
+/*Animacion del footer*/
+.footer-animation {
+  white-space: nowrap;
+  overflow: hidden; 
+  animation: footer-animation 10s linear infinite;
+  width: 100%;
+}
+
+@keyframes footer-animation {
+  0% {
+    transform: translateX(250%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/*Animacion del footer*/
+ion-content {
+  --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
+}

@@ -4,6 +4,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -12,56 +18,13 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
-    "lib": [
-      "es2018", 
-      "dom"
-    ],
-    "types": ["cypress"],
-    "useDefineForClassFields": false,
-    "paths": {
-      "localforage": ["./node_modules/localforage/dist/localforage.js"],
-      "jsqr": ["./node_modules/jsqr/dist/jsqr.esm.js"]
-    }
+    "lib": ["es2018", "dom"],
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
+  }
 }
-
-// {
-//   "compileOnSave": false,
-//   "compilerOptions": {
-//     "baseUrl": "./",
-//     "outDir": "./dist/out-tsc",
-//     "forceConsistentCasingInFileNames": true,
-//     "strict": true,
-//     "noImplicitOverride": true,
-//     "noPropertyAccessFromIndexSignature": true,
-//     "noImplicitReturns": true,
-//     "noFallthroughCasesInSwitch": true,
-//     "sourceMap": true,
-//     "declaration": false,
-//     "downlevelIteration": true,
-//     "experimentalDecorators": true,
-//     "moduleResolution": "node",
-//     "importHelpers": true,
-//     "target": "es2022",
-//     "module": "es2020",
-//     "lib": [
-//       "es2018", 
-//       "dom"
-//     ],
-//     "useDefineForClassFields": false
-//   },
-//   "angularCompilerOptions": {
-//     "enableI18nLegacyMessageIdFormat": false,
-//     "strictInjectionParameters": true,
-//     "strictInputAccessModifiers": true,
-//     "strictTemplates": true
-//   }
-// }
-
-

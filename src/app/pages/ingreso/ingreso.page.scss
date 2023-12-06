@@ -2,13 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 65%;
+    height: 100%;
   }
   
   .marco {
     border: 3px solid gray;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 16px;
   }
   
   .alinear-centro {
@@ -16,28 +15,7 @@
     padding-top: 8px;
     padding-bottom: 8px;
   }
+
   ion-content {
-    --background: #fff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
-  }
-
-  ion-content.background {
-    --background: #ffffff url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
-    background-size: cover;
-    min-height: 100vh;
-    overflow: hidden; /* Desactiva el desplazamiento vertical */
-  }
-  
-  .toolbar{
-    --background: rgba(255, 255, 255, 0);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-  ion-title .titulo {
-    background-color: #041C2C;
-    color: white;
-    padding: 10px; /* Ajusta según sea necesario para el espaciado interior */
-    border-radius: 20px; /* Ajusta según sea necesario para los bordes redondeados */
+    --background: url(/assets/img/fondo.duoc.png) no-repeat center center / cover;
   }

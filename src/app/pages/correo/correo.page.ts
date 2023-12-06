@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router, NavigationExtras} from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { Usuario } from 'src/app/model/usuario';
-import { async } from '@angular/core/testing';
-
-
+import { showAlertDUOC } from 'src/app/tools/message-routines';
+import { Router } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-correo',
   templateUrl: './correo.page.html',
@@ -19,32 +18,25 @@ import { async } from '@angular/core/testing';
 export class CorreoPage implements OnInit {
 
   public correo: string = '';
+  
+  constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) { }
 
-  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router) { }
-
-  ngOnInit() {
+  ngOnInit() { 
   }
 
-  public ingresarPaginaValidarRespuestaSecreta(): void {
-    this.bd.leerUsuario(this.correo)
-      .then((usuario: Usuario) => {
-        if (!usuario) {
-          this.router.navigate(['/incorrecto']);
-        } else {
-          const navigationExtras: NavigationExtras = {
-            state: {
-              usuario: usuario
-            }
-          };
-          this.router.navigate(['/pregunta'], navigationExtras);
+  async ingresarPaginaValidarRespuestaSecreta() {
+    const usuario = new Usuario();
+    const usuarioEncontrado = await this.bd.leerUsuario(this.correo);
+    if (!usuarioEncontrado) {
+      showAlertDUOC('El correo no existe');
+    }
+    else {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: usuarioEncontrado
         }
-      })
-      .catch(error => {
-        console.error('Error al leer usuario:', error);
-      });
-  }
-
-  ingresar() {
-    this.router.navigate(['/ingreso']);
+      };
+      this.router.navigate(['/pregunta'], navigationExtras);
+    }
   }
 }

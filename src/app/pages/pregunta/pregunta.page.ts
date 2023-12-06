@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { DataBaseService } from 'src/app/services/data-base.service';
 import { Usuario } from 'src/app/model/usuario';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-pregunta',
@@ -16,33 +15,31 @@ import { Usuario } from 'src/app/model/usuario';
 })
 export class PreguntaPage implements OnInit {
 
-  public usuario: Usuario;
-  public respuesta: string = '';
-  public nombreUsuario: string = '';
+  public usuario: Usuario | undefined;
+  public respuesta: String = '';
 
-  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { 
-    
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router) 
+  {
+
     this.activatedRoute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.usuario = this.router.getCurrentNavigation().extras.state.usuario;
-        if (this.usuario && this.usuario.nombre) {
-          this.nombreUsuario = this.usuario.nombre;
-        }
+      if (this.router.getCurrentNavigation()?.extras?.state) {
+        this.usuario = this.router.getCurrentNavigation()?.extras?.state?.['usuario'];
       } else {
-        this.router.navigate(['/ingreso']);
+        this.router.navigate(['/login']);
       }
     });
-    
   }
 
   ngOnInit() {
   }
 
   public validarRespuestaSecreta(): void {
-    if (this.usuario.respuestaSecreta === this.respuesta) {
+    if (this.usuario!.respuestaSecreta === this.respuesta) {
       const navigationExtras: NavigationExtras = {
         state: {
-          password: this.usuario.password
+          password: this.usuario!.password
         }
       };
       this.router.navigate(['/correcto'],navigationExtras);
@@ -52,7 +49,7 @@ export class PreguntaPage implements OnInit {
     }
   }
 
-  ingresar() {
-    this.router.navigate(['/ingreso']);
-  }
+  
+
+
 }

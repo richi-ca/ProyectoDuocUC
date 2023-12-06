@@ -1,33 +1,35 @@
-<ion-content class="background">
-    <ion-toolbar class="toolbar">
-      <ion-title>
-        <div>
-          <ion-img
-            src="assets/icon/logoduoc.png"
-            width="100px"
-            alt="Logo DUOC"
-          ></ion-img>
-        </div>
-        <div style="text-align: center" class="titulo">
-          Sistema de Asistencia DuocUC
-        </div>
-      </ion-title>
-    </ion-toolbar>
-  
-    <div class="centrado-vertical">
-      <div class="marco ion-text-center">
-        <ion-card class="ion-text-center">
-            <ion-card-subtitle>Paso 1: Ingresa tu correo</ion-card-subtitle>
-            <ion-input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo"></ion-input>
-        <ion-label class="ion-padding">
-            <ion-button class="Button" fill="clear" (click)="ingresarPaginaValidarRespuestaSecreta()">Recuperar Contraseña</ion-button>
-        </ion-label>
-        </ion-card>
-        <ion-card>
-        <ion-footer class="ion-text-center">
-            <ion-button (click)="ingresar()" fill="clear">Volver al Login</ion-button>
-        </ion-footer>
-        </ion-card>
-      </div>
+<div class="img_conn" style="background-image: url(/assets/img/fondo.duoc.png)">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    
+    <!--Barra de de botones-->
+    <div slot="start" class="animation-container">
+
+        <ion-title class=#title-animation>correo</ion-title>
     </div>
-  </ion-content>
+
+    <!--Imagen-->
+    <div slot="end">
+      <img width="150px" src="assets/icon/logo-duoc.png" alt="Logo DUOC" class="image-animation">
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal ion-text-center">
+  <ion-card>
+    <ion-card-subtitle>Ingresa tu correo</ion-card-subtitle>
+    
+    <ion-input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo"></ion-input>
+    <ion-label>
+      <ion-button class="Button" (click)="ingresarPaginaValidarRespuestaSecreta()">Validar correo</ion-button>
+    </ion-label>
+  </ion-card>
+
+  <ion-label>
+    <ion-button shape="round" text-align="center" href="">Iniciar sesión</ion-button>
+  </ion-label>
+
+</ion-content>
+</div>

@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { DataBaseService } from 'src/app/services/data-base.service';
 
 @Component({
   selector: 'app-incorrecto',
@@ -15,12 +12,9 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 })
 export class IncorrectoPage implements OnInit {
 
-  constructor(private bd: DataBaseService, private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  ingresar() {
-    this.router.navigate(['/ingreso']);
-  }
 }

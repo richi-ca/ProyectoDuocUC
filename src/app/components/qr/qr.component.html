@@ -1,23 +1,21 @@
-<div class="marco">
+<ion-content class="ion-padding ion-text-center">
+
   <div class="ion-padding-bottom">
-    <h1 id="saludo" style="color: black" class="desplazar-texto">
-      ¡Bienvenido(a) {{ usuario.nombre }} {{ usuario.apellido }}!
+    <h1>
+      Bienvenido(a)! {{ usuario.nombre }} {{usuario.apellido}}
     </h1>
   </div>
 
-  <div class="centrar-boton">
-    <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()">
-      Comenzar Escaneo de QR
-    </ion-button>
-  </div>
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()">
+    <ion-icon slot="start" name="videocam-outline"></ion-icon>
+    COmenzar escaneo de QR
+  </ion-button>
 
-  <div class="centrar-boton">
-    <ion-button
-      *ngIf="escaneando && plataforma === 'web'"
-      (click)="detenerEscaneoQR()">
-      Detener escaneo de QR
-    </ion-button>
-  </div>
-  <video id="video1" #video [hidden]="!escaneando" width="100%"></video>
+  <ion-button *ngIf="escaneando && plataforma === 'web'" (click)="detenerEscaneoQR()">
+    <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+    Detener escaneo de QR
+  </ion-button>
+
+  <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
-</div>
+</ion-content>

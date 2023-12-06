@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, NgZone, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { EventEmitter } from '@angular/core';
-import { Usuario } from 'src/app/model/usuario';
-import { Asistencia } from 'src/app/model/asistencia';
+import { EventEmitter, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Asistencia } from 'src/app/model/asistencia';
+import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { SqliteService } from 'src/app/services/sqlite.service';
-import { log, showAlertDUOC, showAlertYesNoDUOC } from 'src/app/tools/message-routines';
+import { showAlertDUOC, showAlertYesNoDUOC } from 'src/app/tools/message-routines';
 import jsQR, { QRCode } from 'jsqr';
 import { BarcodeFormat, BarcodeScanner, ScanResult } from '@capacitor-mlkit/barcode-scanning';
 import { MessageEnum } from 'src/app/tools/message-enum';
+
 
 @Component({
   selector: 'app-qr',
@@ -39,46 +40,38 @@ export class QrComponent  implements OnInit {
     private bd: DataBaseService,
     private sqliteService: SqliteService,
     private readonly ngZone: NgZone
-  ) { }
+    ) {}
 
   ngOnInit() {
     this.plataforma = this.sqliteService.platform;
     this.authService.usuarioAutenticado.subscribe((usuario) => {
-      this.usuario = usuario? usuario : new Usuario();
-    });
+      this.usuario = usuario? usuario: new Usuario();
+  });
+
+}
+
+async comenzarEscaneoQR() {
+  if (this.plataforma === 'web') {
+    this.comenzarEscaneoQRWeb();
+  } else {
+    this.comenzarEscaneoQRNativo();
   }
+}
 
-  async comenzarEscaneoQR() {
-    if (this.plataforma === 'web') {
-      this.comenzarEscaneoQRWeb();
-    } else {
-      this.comenzarEscaneoQRNativo();
-    }
-  }
-
-  /**
-   *  Proceso de escanéo de QR en un Navegador Web
-   */
-
-  public async comenzarEscaneoQRWeb() {
-    const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
-      video: {facingMode: 'environment'}
-    });
-    this.video.nativeElement.srcObject = mediaProvider;
-    this.video.nativeElement.setAttribute('playsinline', 'true');
-    this.video.nativeElement.play();
-    this.escaneando = true;
-    requestAnimationFrame(this.verificarVideo.bind(this));
-    // temporizador para el qr 10.000mls = 10seg
-    setTimeout(() => {
-      this.escaneando = false;
-      this.video.nativeElement.srcObject.getTracks().forEach(track => track.stop());
-    }, 10000);
+public async comenzarEscaneoQRWeb() {
+  const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
+    video: { facingMode: 'environment' }
+  });
+  this.video.nativeElement.srcObject = mediaProvider;
+  this.video.nativeElement.setAttribute('playsinline', true);
+  this.video.nativeElement.play();
+  this.escaneando = true;
+  requestAnimationFrame(this.verificarVideo.bind(this));
   }
 
   async verificarVideo() {
-    if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGH_DATA) {
-      if (this.obtenerDatosQR() || !this.escaneando) return;
+    if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGHT_DATA ) {
+      if(this.obtenerDatosQR() || !this.escaneando) return;
       requestAnimationFrame(this.verificarVideo.bind(this));
     } else {
       requestAnimationFrame(this.verificarVideo.bind(this));
@@ -93,19 +86,16 @@ export class QrComponent  implements OnInit {
     const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
     context.drawImage(this.video.nativeElement, 0, 0, w, h);
     const img: ImageData = context.getImageData(0, 0, w, h);
-    let qrCode: QRCode  | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
+    let qrCode: QRCode | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
     if (qrCode) {
       const data = qrCode.data;
-      if (data !== '') {
-        // this.escaneando = false;
-        // this.video.nativeElement.pause();
-        // this.video.nativeElement.currentTime = 5;
-        (document.getElementById('video1') as HTMLVideoElement).pause();
+      if(data !== '') {
+        this.escaneando = false;
         if (this.asistencia.verificarAsistenciaDesdeQR(qrCode.data)) {
           this.bd.datosQR.next(qrCode.data);
           this.qrCapturado.emit(qrCode.data);
         } else {
-          showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC');
+          showAlertDUOC('El codigo QR escaneado no corresponde a uno del sistema DUOCUC');
         }
         return true;
       }
@@ -114,16 +104,8 @@ export class QrComponent  implements OnInit {
   }
 
   public detenerEscaneoQR(): void {
-    // detiene escaneo
     this.escaneando = false;
-    // apaga la camara
-    this.video.nativeElement.srcObject.getTracks().forEach(track => track.stop());
   }
-
-  /**
-   *  Proceso de escanéo de QR nativo en Android
-   *  Ver: https://github.com/capawesome-team/capacitor-barcode-scanning
-   */
 
   async comenzarEscaneoQRNativo() {
     const datosQR = await this.escanearQRNativo();
@@ -134,10 +116,10 @@ export class QrComponent  implements OnInit {
     }
 
     if (this.asistencia.verificarAsistenciaDesdeQR(datosQR)) {
-      this.bd.datosQR.next(datosQR);
+      this.bd.datosQR.next(datosQR); 
       this.qrCapturado.emit(datosQR);
     } else {
-      showAlertDUOC('El código QR escaneado no corresponde a una Asistencia de DUOC');
+      showAlertDUOC('El codigo QR escaneado no corresponde a uno del sistema DUOCUC');
     }
   }
 
@@ -146,40 +128,33 @@ export class QrComponent  implements OnInit {
       await BarcodeScanner.isGoogleBarcodeScannerModuleAvailable().then(async (result) => {
         if (!result.available) await BarcodeScanner.installGoogleBarcodeScannerModule();
       });
+      if (!await BarcodeScanner.isSupported()){
+      return Promise.resolve('Error: El Barcode Scanner no es compatible');
+    }
+    
+    let status = await BarcodeScanner.checkPermissions();
+    if (status.camera === 'denied') status = await BarcodeScanner.requestPermissions();
+    if (status.camera === 'denied') {
+      const resp = await showAlertYesNoDUOC('Debe permitir el acceso a la camara para poder escanear el codigo QR');
+      if (resp === MessageEnum.YES) await BarcodeScanner.openSettings();
+      return Promise.resolve('');
+    }
 
-      if (!await BarcodeScanner.isSupported()) {
-        return Promise.resolve('ERROR: Google Barcode Scanner no es compatible con este celular');
-      }
-
-      let status = await BarcodeScanner.checkPermissions();
-
-      if (status.camera === 'denied') {
-        status = await BarcodeScanner.requestPermissions();
-      }
-      
-      if (status.camera === 'denied') {
-        const resp = await showAlertYesNoDUOC('No fue posible otorgar permisos a la cámara. ¿Quiere '
-          + 'acceder a las opciones de configuración de la aplicación y darle permiso manualmente?');
-        if (resp === MessageEnum.YES) await BarcodeScanner.openSettings();
-        return Promise.resolve('');
-      }
-
-      await BarcodeScanner.removeAllListeners().then(() => {
-        BarcodeScanner.addListener('googleBarcodeScannerModuleInstallProgress', (event) => {
-          this.ngZone.run(() => {
-            console.log('googleBarcodeScannerModuleInstallProgress', event);
-          });
+    await BarcodeScanner.removeAllListeners().then(() => {
+      BarcodeScanner.addListener('googleBarcodeScannerModuleInstallProgress', (event) => {
+        this.ngZone.run(() => {
+          console.log('googleBarcodeScannerModuleInstallProgress', event);
         });
       });
+    });
+    
 
-      const { barcodes }: ScanResult = await BarcodeScanner.scan({ formats: [BarcodeFormat.QrCode],});
-      return Promise.resolve(barcodes[0].displayValue);
-      
-    } catch(error: any) {
-      if (error.message.includes('canceled')) return Promise.resolve('');
-      console.log('ERROR EN escanearQRNativo CATCH ' + error.message);
-      return Promise.resolve('ERROR: No fue posible leer el código QR');
-    }
+    const { barcodes }: ScanResult = await BarcodeScanner.scan({ formats: [BarcodeFormat.QrCode],});
+    return Promise.resolve(barcodes[0].displayValue);
+  } catch (error: any) {
+    if(error.message.includes('cancelled')) return Promise.resolve('');
+    return Promise.resolve('Error: No fue posible leer el codigo QR');
   }
+}
 
 }

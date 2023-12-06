@@ -1,38 +1,37 @@
-<ion-content class="background">
+<div class="img_conn" style="background-image: url(/assets/img/fondo.duoc.png)"></div>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Asistencia DUOC - Ingreso</ion-title>
+      <div slot="end">
+        <img src="https://www.thegeniuschoice.com/wp-content/uploads/2017/10/Logo-DUOC-transparente-200x45.png" alt="Logo DUOC" class="image-animation">
+      </div>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-toolbar class="toolbar">
-    <ion-title>
-      <div>
-        <ion-img src="assets/icon/logoduoc.png" width="100px" alt="Logo DUOC"></ion-img>
-      </div>
-      <div style="text-align: center;" class="titulo">
-        Sistema de Asistencia DuocUC
-      </div>
-    </ion-title>
-  </ion-toolbar>
-  
-  <div class="centrado-vertical">
-    <div class="marco">
-      <ion-card>
-      <ion-item>
-        <ion-input [(ngModel)]="correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
-      </ion-item>
-        <div class="alinear-centro">
-          <ion-button (click)="ingresar()">
-            Ingresar
-          </ion-button>
+  <ion-content class="ion-padding-horizontal ion-text-center">
+
+    <ion-card class="ion-text-center">
+      <ion-label><h2>Inicio de sesión</h2></ion-label>
+      <div class="centrado-vertical">
+        <div class="marco">
+          <ion-item>
+            <ion-input [(ngModel)]="correo" type="text" label="Correo" labelPlacement="floating"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+          </ion-item>
+          <div class="alinear-centro">
+            <ion-button (click)="ingresar()" shape="block">
+              Ingresar
+            </ion-button>
+          </div>
         </div>
-        <ion-label>
-          <ion-button class="custom-button" (click)="goCorreo()">
-            Recuperar Contraseña
-          </ion-button>
-        </ion-label>
-      </ion-card>
-    </div>
-  </div>
+      </div>
+    </ion-card>
 
 
-</ion-content>
+    <ion-label >
+      <ion-button shape="round" text-align="center"(click)="goCorreo()">Recuperar Contraseña</ion-button>
+    </ion-label>
+
+  </ion-content>

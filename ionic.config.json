@@ -1,7 +1,7 @@
 {
-  "name": "control",
+  "name": "ProyectoGato",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular-standalone"
 }

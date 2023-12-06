@@ -5,14 +5,10 @@ import { Router } from '@angular/router';
 import { DataBaseService } from './data-base.service';
 import { Storage } from '@ionic/storage-angular';
 import { showToast } from '../tools/message-routines';
-import { NgIf } from '@angular/common';
 
-@Injectable(
-  {
+@Injectable({
   providedIn: 'root'
-}
-)
-
+})
 export class AuthService {
 
   keyUsuario = 'USUARIO_AUTENTICADO';
@@ -49,45 +45,26 @@ export class AuthService {
   }
 
   async login(correo: string, password: string) {
-    await this.storage.get(this.keyUsuario).then(async (usuarioAutenticado) => {
+    await this.storage.get(this.keyUsuario).then( async (usuarioAutenticado) => {
       if (usuarioAutenticado) {
-        if (usuarioAutenticado.usuario.nombre === 'Administrador'){
-          // Para otros usuarios autenticados, redirige a 'inicio'
-          this.usuarioAutenticado.next(usuarioAutenticado);
-          this.primerInicioSesion.next(false);
-          this.router.navigate(['cm']);
-          return;
-        } else {
-          // Para otros usuarios autenticados, redirige a 'inicio'
-          this.usuarioAutenticado.next(usuarioAutenticado);
-          this.primerInicioSesion.next(false);
-          this.router.navigate(['inicio']);
-        }
-        
+        this.usuarioAutenticado.next(usuarioAutenticado);
+        this.primerInicioSesion.next(false);
+        this.router.navigate(['inicio']);
       } else {
-        // Usuario no autenticado, validar en la base de datos
         await this.bd.validarUsuario(correo, password).then(async (usuario: Usuario | undefined) => {
           if (usuario) {
-            if (usuario.nombre === "Administrador"){
-              showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
-              this.guardarUsuarioAutenticado(usuario);
-              this.primerInicioSesion.next(true);
-              this.router.navigate(['cm']);
-            } else{
-              showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
-              this.guardarUsuarioAutenticado(usuario);
-              this.primerInicioSesion.next(true);
-              this.router.navigate(['inicio']);
-              }
+            showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
+            this.guardarUsuarioAutenticado(usuario);
+            this.primerInicioSesion.next(true);
+            this.router.navigate(['inicio']);
           } else {
-            showToast(`El correo o la contraseña son incorrectos`);
+            showToast(`El correo o la password son incorrectos`);
             this.router.navigate(['ingreso']);
           }
-        });
+        })
       }
-    });
+    })
   }
-  
 
   async logout() {
     this.leerUsuarioAutenticado().then((usuario) => {

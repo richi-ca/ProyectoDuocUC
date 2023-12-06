@@ -49,14 +49,6 @@
       "contenido": "Como estudiante del Instituto Duoc, he tenido la oportunidad de participar en proyectos emocionantes y adquirir conocimientos prácticos que me preparan para el mundo laboral."
     },
     {
-      "id": 7,
-      "correo": "atorres@duocuc.cl",
-      "nombre": "Ana",
-      "apellido": "Torres",
-      "titulo": "Oportunidades de Desarrollo Profesional en el Instituto Duoc",
-      "contenido": "En el Instituto Duoc, te brindamos oportunidades únicas de desarrollo profesional. Descubre cómo nuestras carreras te preparan para un futuro exitoso."
-    },
-    {
       "id": 8,
       "correo": "avalenzuela@duocuc.cl",
       "nombre": "Alberto",
@@ -69,8 +61,16 @@
       "correo": "cfuentes@duocuc.cl",
       "nombre": "Carla",
       "apellido": "Fuentes",
-      "titulo": "Eventos Culturales en el Instituto Duoc",
-      "contenido": "Descubre la diversidad cultural en el Instituto Duoc. Participa en nuestros eventos culturales que celebran la creatividad y el arte."
+      "titulo": "aas",
+      "contenido": "bbb"
+    },
+    {
+      "id": 10,
+      "correo": "atorres@duocuc.cl",
+      "nombre": "Ana",
+      "apellido": "Torres",
+      "titulo": "Trabajando duro",
+      "contenido": "He estado puro trabajando para mis alumnos, ojalá me evalúen bien."
     }
   ]
 }

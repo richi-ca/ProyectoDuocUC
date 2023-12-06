@@ -19,26 +19,13 @@ export class ApiClientService {
   listaPublicaciones: BehaviorSubject<Publicacion[]> =  new BehaviorSubject<Publicacion[]>([]);
   apiUrl = 'http://localhost:3000';
   //apiUrl = 'http://192.168.100.34:3000';
-  // apiUrl = '_JSON-SERVER/publicaciones.json';
 
   constructor(private http: HttpClient) { }
 
   async cargarPublicaciones() {
     this.leerPublicaciones().subscribe({
       next: (publicaciones) => {
-        let pubs: Publicacion[] = []
-        publicaciones.forEach((element: any) => {
-          let json = element;
-          let p = new Publicacion();
-          p.id = json.id;
-          p.correo = json.correo;
-          p.nombre = json.nombre;
-          p.apellido = json.apellido;
-          p.titulo = json.titulo;
-          p.contenido = json.contenido;
-          pubs.push(p);
-        });
-        this.listaPublicaciones.next(pubs);
+        this.listaPublicaciones.next(publicaciones as Publicacion[]);
       },
       error: (error: any) => {
         showToast('El servicio API Rest de Publicaciones no está disponible');

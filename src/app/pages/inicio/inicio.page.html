@@ -1,69 +1,48 @@
-<ion-content class="background">
-  <ion-toolbar class="toolbar">
-    <ion-title>
-      <div>
-        <ion-img
-          src="assets/icon/logoduoc.png"
-          width="100px"
-          alt="Logo DUOC"
-        ></ion-img>
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <div slot="end">
+        <img src="https://www.thegeniuschoice.com/wp-content/uploads/2017/10/Logo-DUOC-transparente-200x45.png" alt="Logo DUOC" class="image-animation">
       </div>
-      <div style="text-align: center" class="titulo">
-        Sistema de Asistencia DuocUC
-      </div>
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar class="toolbar-comp">
-    <ion-segment
-      [(ngModel)]="componente_actual"
-      (ngModelChange)="cambiarComponente($event)"
-    >
-      <!-- <ion-segment-button value="qr" class="comp">
-        <ion-label class="comp">QR</ion-label>
+    </ion-toolbar>
+  </ion-header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="componente_actual" (ngModelChange)="cambiarComponente($event)">
+      <ion-segment-button value="qr">
+        <ion-label>QR</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="qr-copy" class="comp">
-        <ion-label class="comp">QRC</ion-label>
-      </ion-segment-button> -->
-      <ion-segment-button value="qr-nativo" class="comp">
-        <ion-label class="comp">QRN</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="miclase" class="comp">
+
+      <ion-segment-button value="miclase">
         <ion-label>Mi clase</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="foro" class="comp">
+
+      <ion-segment-button value="foro">
         <ion-label>Foro</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="misdatos" class="comp">
+
+      <ion-segment-button value="misdatos">
         <ion-label>Mis Datos</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 
-  <!-- <app-qr
-    [hidden]="componente_actual !== 'qr'"
-    (qrCapturado)="cambiarComponente('miclase')">
-  </app-qr>
-  <app-qr
-    [hidden]="componente_actual !== 'qr-copy'"
-    (qrCapturado)="cambiarComponente('miclase')">
-  </app-qr> -->
-  <app-qr-nativo
-    [hidden]="componente_actual !== 'qr-nativo'"
-    (qrCapturado)="cambiarComponente('miclase')">
-  </app-qr-nativo>
-  <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase>
-  <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
-  <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>
+  <ion-content>
+    
+    <app-qr [hidden]="componente_actual !== 'qr'" (qrCapturado)="cambiarComponente('miclase')"></app-qr>
 
-    <ion-footer class="footer">
-      <ion-toolbar>
-        <ion-button
-          (click)="cerrarSesion()"
-          expand="block"
-          fill="clear"
-          shape="round"
-          >Cerrar Sesión</ion-button
-        >
-      </ion-toolbar>
-    </ion-footer>
-</ion-content>
+    <app-miclase [hidden]="componente_actual !== 'miclase'"></app-miclase>
+
+    <app-foro [hidden]="componente_actual !== 'foro'"></app-foro>
+
+    <app-misdatos [hidden]="componente_actual !== 'misdatos'"></app-misdatos>
+
+
+
+  </ion-content>
+
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">Cerrar Sesión</ion-button>
+    </ion-toolbar>
+  </ion-footer>
