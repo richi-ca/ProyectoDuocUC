@@ -7,9 +7,11 @@ import { Storage } from '@ionic/storage-angular';
 import { showToast } from '../tools/message-routines';
 import { NgIf } from '@angular/common';
 
-@Injectable({
+@Injectable(
+  {
   providedIn: 'root'
-})
+}
+)
 
 export class AuthService {
 

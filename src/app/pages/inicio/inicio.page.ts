@@ -16,10 +16,17 @@ import { QrNativoComponent } from 'src/app/components/qr-nativo/qr-nativo.compon
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, QrNativoComponent, MiclaseComponent, ForoComponent, MisdatosComponent]
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    QrNativoComponent,
+    MiclaseComponent,
+    ForoComponent,
+    MisdatosComponent,
+  ],
 })
 export class InicioPage implements OnInit {
-
   // componente_actual = 'qr';
   componente_actual = 'qr-nativo';
 
@@ -27,27 +34,24 @@ export class InicioPage implements OnInit {
     private authService: AuthService,
     private bd: DataBaseService,
     private api: ApiClientService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.authService.primerInicioSesion.subscribe(esPrimerInicio => {
+    this.authService.primerInicioSesion.subscribe((esPrimerInicio) => {
       // this.componente_actual = 'qr';
       this.componente_actual = 'qr-nativo';
       this.bd.datosQR.next('');
-  });
+    });
+  }
+
+  cambiarComponente(nombreComponente: string) {
+    this.componente_actual = nombreComponente;
+    if (this.componente_actual === 'foro') this.api.cargarPublicaciones();
+    if (this.componente_actual === 'misdatos')
+      this.authService.leerUsuarioAutenticado();
+  }
+
+  cerrarSesion() {
+    this.authService.logout();
+  }
 }
-
-cambiarComponente(nombreComponente: string) {
-  this.componente_actual = nombreComponente;
-  if(this.componente_actual === 'foro') this.api.cargarPublicaciones();
-  if(this.componente_actual === 'misdatos') this.authService.leerUsuarioAutenticado();
-
-}
-
-
-cerrarSesion(){
-  this.authService.logout();
-}
-
-}
-
