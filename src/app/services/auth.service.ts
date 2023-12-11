@@ -44,19 +44,55 @@ export class AuthService {
     this.storage.remove(this.keyUsuario);
   }
 
+  // async login(correo: string, password: string) {
+  //   await this.storage.get(this.keyUsuario).then( async (usuarioAutenticado) => {
+  //     if (usuarioAutenticado) {
+  //       this.usuarioAutenticado.next(usuarioAutenticado);
+  //       this.primerInicioSesion.next(false);
+  //       this.router.navigate(['inicio']);
+  //     } else {
+  //       await this.bd.validarUsuario(correo, password).then(async (usuario: Usuario | undefined) => {
+  //         if (usuario) {
+  //           showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
+  //           this.guardarUsuarioAutenticado(usuario);
+  //           this.primerInicioSesion.next(true);
+  //           this.router.navigate(['inicio']);
+  //         } else {
+  //           showToast(`El correo o la password son incorrectos`);
+  //           this.router.navigate(['ingreso']);
+  //         }
+  //       })
+  //     }
+  //   })
+  // }
+
   async login(correo: string, password: string) {
     await this.storage.get(this.keyUsuario).then( async (usuarioAutenticado) => {
       if (usuarioAutenticado) {
-        this.usuarioAutenticado.next(usuarioAutenticado);
-        this.primerInicioSesion.next(false);
-        this.router.navigate(['inicio']);
+        if(usuarioAutenticado.usuario.nombre === 'Administrador'){
+          this.usuarioAutenticado.next(usuarioAutenticado);
+          this.primerInicioSesion.next(false);
+          this.router.navigate(['cm']);
+        } else {
+          this.usuarioAutenticado.next(usuarioAutenticado);
+          this.primerInicioSesion.next(false);
+          this.router.navigate(['inicio']);
+        }
+        
       } else {
         await this.bd.validarUsuario(correo, password).then(async (usuario: Usuario | undefined) => {
           if (usuario) {
-            showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
-            this.guardarUsuarioAutenticado(usuario);
-            this.primerInicioSesion.next(true);
-            this.router.navigate(['inicio']);
+            if (usuario.nombre === "Administrador"){
+              showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
+              this.guardarUsuarioAutenticado(usuario);
+              this.primerInicioSesion.next(true);
+              this.router.navigate(['cm']);
+            } else{
+              showToast(`¡Bienvenido ${usuario.nombre} ${usuario.apellido}!`);
+              this.guardarUsuarioAutenticado(usuario);
+              this.primerInicioSesion.next(true);
+              this.router.navigate(['inicio']);
+            }
           } else {
             showToast(`El correo o la password son incorrectos`);
             this.router.navigate(['ingreso']);

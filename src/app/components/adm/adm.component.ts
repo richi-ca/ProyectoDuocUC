@@ -36,7 +36,7 @@ export class AdmComponent implements OnInit {
   }
 
   eliminarUsuario(user:any){
-    if(user.correo === "admin@duocuc.cl"){
+    if (user.correo === "admin@duocuc.cl"){
       showAlertDUOC("No se puede eliminar al administrador");
       return;
     } else{

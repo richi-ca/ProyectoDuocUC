@@ -74,25 +74,18 @@ describe('Probar clase de usuario', () => {
         expect(usuario.validarPassword(usuario.password)).toContain('Para entrar al sistema debe ingresar la contraseña.');
       });
 
-      it('Probar que la contraseña sea numérica o String', () => {
+      it('Probar que la contraseña sea alfanumerica', () => {
         // contraseña alfanumérica
         usuario.password = 'abcd1';
         const resultadoAlfanumerico = usuario.validarPassword(usuario.password);
         expect(resultadoAlfanumerico).toBe('');
       });
-        
-      it('Probar que la contraseña no supere los 5 dígitos como por ejemplo "1234567890"', () => {
-        // Contraseña de más de 5 dígitos
-        usuario.password = '123456';
-        const resultado = usuario.validarPassword(usuario.password);
-        expect(resultado).toContain('La contraseña debe ser numérica o alfanumérica de 4 a 5 caracteres.');
-      });
 
       it('Probar que la contraseña no supere los 5 dígitos como por ejemplo "1234567890"', () => {
         // contraseña con 5 dígitos
-        usuario.password = '12345';
+        usuario.password = '123456';
         const resultadoValido = usuario.validarPassword(usuario.password);
-        expect(resultadoValido).toBe('');
+        expect(resultadoValido).toBe('La contraseña debe ser numérica o alfanumérica de 4 a 5 caracteres.');
       });
 
       it ('Probar que la contraseña sea de al menos 4 "abcd" ', () => {

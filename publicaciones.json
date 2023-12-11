@@ -87,14 +87,6 @@
       "apellido": "App",
       "titulo": "aaaa",
       "contenido": "aaaa"
-    },
-    {
-      "id": 12,
-      "correo": "atorres@duocuc.cl",
-      "nombre": "Ana",
-      "apellido": "Torres",
-      "titulo": "bbbb",
-      "contenido": "bbbbbb"
     }
   ]
 }

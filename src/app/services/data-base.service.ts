@@ -44,6 +44,9 @@ export class DataBaseService {
         if (!usuario) await this.guardarUsuario(Usuario.getUsuario('avalenzuela@duocuc.cl', 'qwer', 'Alberto', 'Valenzuela', 'Mi mejor amigo', 'juanito'));
         this.leerUsuario('cfuentes@duocuc.cl').then(async usuario => {
           if (!usuario) await this.guardarUsuario(Usuario.getUsuario('cfuentes@duocuc.cl', 'asdf', 'Carla', 'Fuentes', 'Dónde nació mamá', 'valparaiso'));
+          this.leerUsuario('admin@duocuc.cl').then(async usuario => {
+            if (!usuario) await this.guardarUsuario(Usuario.getUsuario('admin@duocuc.cl', 'admin', 'Administrador', 'App', 'Dónde nació papá', 'santiago'));
+          });
         });
       });
     });
@@ -60,6 +63,7 @@ export class DataBaseService {
   async leerUsuarios() {
     const usuarios: Usuario[] = (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
     this.listaUsuarios.next(usuarios);
+    return usuarios;
   }
 
   async leerUsuario(correo: string): Promise<Usuario | undefined> {

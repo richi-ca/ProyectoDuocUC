@@ -19,6 +19,11 @@ export const routes: Routes = [
     canActivate: [inicioGuard]
   },
   {
+    path: 'cm',
+    loadComponent: () => import('./pages/cm/cm.page').then( m => m.CmPage),
+    canActivate: [inicioGuard]
+  },
+  {
     path: 'correo',
     loadComponent: () => import('./pages/correo/correo.page').then( m => m.CorreoPage)
   },
